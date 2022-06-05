@@ -11,6 +11,7 @@ import 'package:eran_by_saving/pages/Home/home_page_android.dart';
 String routeByPlatform(String route) {
   if (kIsWeb) return route;
   if (Platform.isAndroid) return '${route}_android';
+  if (Platform.isIOS) return '${route}_ios';
   return route;
 }
 
@@ -20,5 +21,6 @@ void goTo(BuildContext context, String route) {
 
 Map<String, Widget Function(BuildContext)> appRoutes = {
   '/home': (BuildContext _) => const HomePage(),
-  '/home_android': (BuildContext _) => const HomePageAndroid()
+  '/home_android': (BuildContext _) => const HomePageAndroid(),
+  '/home_ios': (BuildContext _) => const HomePage()
 };
