@@ -208,7 +208,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_zoom_drawer:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_zoom_drawer
       url: "https://pub.dartlang.org"
@@ -432,7 +432,7 @@ packages:
     source: hosted
     version: "4.2.4"
   provider:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: provider
       url: "https://pub.dartlang.org"

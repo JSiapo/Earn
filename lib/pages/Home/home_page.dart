@@ -1,14 +1,12 @@
+import 'package:eran_by_saving/pages/Home/home_page_abstract.dart';
+import 'package:eran_by_saving/widgets/common/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:eran_by_saving/provider/home_provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatelessWidget with HomePageAbstract {
   const HomePage({Key? key}) : super(key: key);
-
-  String setTitle() {
-    return "Home Basic";
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +17,19 @@ class HomePage extends StatelessWidget {
         body: Center(
           child: Consumer<HomeProvider>(
             builder: (context, data, _) {
-              return ElevatedButton(
-                  onPressed: () {
-                    data.toogleTheme();
-                  },
-                  child: Text(setTitle()));
+              return FancyButton(
+                callback: () {
+                  data.toogleTheme();
+                },
+                text: setTitle(),
+              );
             },
           ),
         ));
+  }
+
+  @override
+  String setTitle() {
+    return "Home Basic";
   }
 }
