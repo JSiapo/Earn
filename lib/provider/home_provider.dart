@@ -1,3 +1,4 @@
+import 'package:eran_by_saving/utils/debouncer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:eran_by_saving/hive/hive_data/settings_data.dart';
@@ -6,6 +7,8 @@ import 'package:eran_by_saving/model/settings_model.dart';
 class HomeProvider extends ChangeNotifier {
   late Settings settings;
   int indexPage = 0;
+  int indexCard = 0;
+  final _debouncer = Debouncer(milliseconds: 1200);
 
   Future<Settings> getSettings() async {
     const settingData = SettingsData();
@@ -31,6 +34,13 @@ class HomeProvider extends ChangeNotifier {
   Future<void> loadSetting() async {
     settings = await getSettings();
     notifyListeners();
+  }
+
+  Future<void> cardChanged(int page, double? pageControllerPage) async {
+    _debouncer.run(() {
+      indexCard = page;
+      notifyListeners();
+    });
   }
 
   void updatePage() {}

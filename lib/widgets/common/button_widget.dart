@@ -1,6 +1,8 @@
 import 'package:eran_by_saving/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FancyButton extends StatelessWidget {
   final String text;
@@ -32,7 +34,20 @@ class FancyButtonAndroid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: callback, child: Text(text));
+    return ElevatedButton(
+      onPressed: callback,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            text,
+            style: GoogleFonts.lato(),
+          ),
+          const Icon(FontAwesomeIcons.moon),
+        ],
+      ),
+    );
   }
 }
 
@@ -44,6 +59,19 @@ class FancyButtonIOS extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(onPressed: callback, child: Text(text));
+    return CupertinoButton(
+      onPressed: callback,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            text,
+            style: GoogleFonts.lato(),
+          ),
+          const Icon(FontAwesomeIcons.moon),
+        ],
+      ),
+    );
   }
 }

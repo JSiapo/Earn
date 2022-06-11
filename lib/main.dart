@@ -1,4 +1,5 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
+import 'package:eran_by_saving/firebase_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +12,9 @@ import 'package:eran_by_saving/route/routes.dart'
 import 'package:eran_by_saving/provider/home_provider.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initHive();
+  await initFirebase();
   runApp(const MyApp());
 }
 
@@ -42,8 +45,10 @@ class MaterialWithTheme extends StatelessWidget {
             builder: (context, data, _) => MaterialApp(
               title: 'Earn By Saving',
               debugShowCheckedModeBanner: false,
-              theme:
-                  data.settings.isDark ? ThemeData.dark() : ThemeData.light(),
+              theme: ThemeData(
+                brightness:
+                    data.settings.isDark ? Brightness.dark : Brightness.light,
+              ),
               initialRoute: routeByPlatform(PAGES.homePage.route),
               routes: appRoutes,
             ),

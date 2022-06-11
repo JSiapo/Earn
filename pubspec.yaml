@@ -36,6 +36,10 @@ dependencies:
   hive_flutter: ^1.1.0 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   flutter_zoom_drawer: ^3.0.2 #* ANDROID IOS LINUX MACOS WINDOWS (!WEB)
   provider: ^6.0.3 #* ANDROID IOS LINUX MACOS WEB WINDOWS
+  font_awesome_flutter: ^10.1.0 #* ANDROID IOS LINUX MACOS WEB WINDOWS
+  google_fonts: ^3.0.1 #* ANDROID IOS LINUX MACOS WEB WINDOWS
+  firebase_auth: ^3.3.19 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
+  firebase_core: ^1.17.1 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
 
 dev_dependencies:
   flutter_test:
