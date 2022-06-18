@@ -1,6 +1,7 @@
 // ignore_for_file: curly_braces_in_flow_control_structures
 
 import 'package:eran_by_saving/constants.dart';
+import 'package:eran_by_saving/pages/Settings/settings_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:eran_by_saving/pages/Home/home_page.dart';
@@ -21,5 +22,8 @@ void goTo(BuildContext context, String route) {
 Map<String, Widget Function(BuildContext)> appRoutes = {
   '/home': (BuildContext _) => const HomePage(),
   '/home_android': (BuildContext _) => const HomePageAndroid(),
-  '/home_ios': (BuildContext _) => const HomePage()
+  '/home_ios': (BuildContext _) => const HomePage(),
+  '/settings': (BuildContext _) => const SettingsPage(),
+  '/settings_android': (BuildContext _) => const SettingsPage(),
+  '/settings_ios': (BuildContext _) => const SettingsPage()
 };

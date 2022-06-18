@@ -1,4 +1,7 @@
+import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/pages/Home/home_page_abstract.dart';
+import 'package:eran_by_saving/route/routes.dart';
+import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_list_widget.dart';
 import 'package:eran_by_saving/widgets/common/button_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +15,7 @@ class HomePage extends StatelessWidget with HomePageAbstract {
 
   @override
   Widget build(BuildContext context) {
+    Responsive responsive = Responsive(context);
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 0,
@@ -30,7 +34,7 @@ class HomePage extends StatelessWidget with HomePageAbstract {
                   children: [
                     FancyButton(
                       callback: () {
-                        data.toogleTheme();
+                        goTo(context, PAGES.settingsPage.route);
                       },
                       text: "PAGE: ${data.indexCard}",
                     ),
@@ -38,9 +42,9 @@ class HomePage extends StatelessWidget with HomePageAbstract {
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
                         constraints:
-                            const BoxConstraints(maxHeight: 250, maxWidth: 300),
-                        height: 220,
-                        width: 300,
+                            const BoxConstraints(maxHeight: 350, maxWidth: 400),
+                        height: responsive.hp(25),
+                        width: responsive.wp(85),
                         child: CardList(data.indexCard),
                       ),
                     ),

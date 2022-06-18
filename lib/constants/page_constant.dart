@@ -1,8 +1,6 @@
-//! Add page in ext file on pages_ext.dart
-
 enum PAGES {
   homePage,
-  configPage,
+  settingsPage,
 }
 
 extension PagesExt on PAGES {

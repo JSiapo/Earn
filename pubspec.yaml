@@ -40,7 +40,7 @@ dependencies:
   google_fonts: ^3.0.1 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   firebase_auth: ^3.3.19 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
   firebase_core: ^1.17.1 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
-
+  dio: ^4.0.6 #* ANDROID IOS LINUX MACOS WEB WINDOWS
 dev_dependencies:
   flutter_test:
     sdk: flutter
