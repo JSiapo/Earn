@@ -6,12 +6,13 @@ class CardModel {
   final String nro;
   final String nroCCI;
   final double amount;
+  final String id;
 
-  CardModel({
-    required this.card,
-    required this.name,
-    required this.nro,
-    required this.nroCCI,
-    required this.amount,
-  });
+  CardModel(
+      {required this.card,
+      required this.name,
+      required this.nro,
+      required this.nroCCI,
+      required this.amount,
+      required this.id});
 }

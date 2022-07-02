@@ -1,6 +1,9 @@
 // ignore_for_file: curly_braces_in_flow_control_structures
 
 import 'package:eran_by_saving/constants.dart';
+import 'package:eran_by_saving/pages/Card/AddCard/add_card_page.dart';
+import 'package:eran_by_saving/pages/Card/card_page.dart';
+import 'package:eran_by_saving/pages/Decrypt/descpryt_page.dart';
 import 'package:eran_by_saving/pages/Settings/settings_page.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +22,24 @@ void goTo(BuildContext context, String route) {
   Navigator.pushNamed(context, routeByPlatform(route));
 }
 
+void goBack(BuildContext context) {
+  Navigator.pop(context);
+}
+
 Map<String, Widget Function(BuildContext)> appRoutes = {
   '/home': (BuildContext _) => const HomePage(),
   '/home_android': (BuildContext _) => const HomePageAndroid(),
   '/home_ios': (BuildContext _) => const HomePage(),
   '/settings': (BuildContext _) => const SettingsPage(),
   '/settings_android': (BuildContext _) => const SettingsPage(),
-  '/settings_ios': (BuildContext _) => const SettingsPage()
+  '/settings_ios': (BuildContext _) => const SettingsPage(),
+  '/decrpyt': (BuildContext _) => const DecryptPage(),
+  '/decrpyt_android': (BuildContext _) => const DecryptPage(),
+  '/decrpyt_ios': (BuildContext _) => const DecryptPage(),
+  '/card': (BuildContext _) => const CardPage(),
+  '/card_android': (BuildContext _) => const CardPage(),
+  '/card_ios': (BuildContext _) => const CardPage(),
+  '/addcard': (BuildContext _) => const AddCardPage(),
+  '/addcard_android': (BuildContext _) => const AddCardPage(),
+  '/addcard_ios': (BuildContext _) => const AddCardPage(),
 };

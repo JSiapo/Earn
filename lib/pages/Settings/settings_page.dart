@@ -13,19 +13,20 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Title'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: Consumer<HomeProvider>(
         builder: (context, data, _) => ListView(
           children: [
-            FancyButton(
+            AdaptativeButton(
               callback: () {
                 data.toogleTheme();
               },
-              text: "PAGE: ${data.indexCard}",
+              text: "PAGE: ${data.indexPage}",
             ),
-            FancyButton(
+            AdaptativeButton(
               callback: () {
-                goTo(context, PAGES.homePage.route);
+                goBack(context);
               },
               text: "BACK",
             ),

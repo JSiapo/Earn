@@ -1,6 +1,9 @@
 enum PAGES {
+  decrpytPage,
   homePage,
   settingsPage,
+  cardPage,
+  addcardPage,
 }
 
 extension PagesExt on PAGES {

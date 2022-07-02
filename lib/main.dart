@@ -1,5 +1,6 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/firebase_config.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +9,7 @@ import 'package:eran_by_saving/hive_config.dart' show initHive, getSettings;
 import 'package:eran_by_saving/provider_config.dart' show providers;
 
 import 'package:eran_by_saving/route/routes.dart'
-    show routeByPlatform, appRoutes;
+    show appRoutes, routeByPlatform;
 import 'package:eran_by_saving/provider/home_provider.dart';
 
 Future<void> main() async {
@@ -38,36 +39,44 @@ class MaterialWithTheme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool>(
-      future: getSettings(context),
-      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-        if (snapshot.hasData) {
-          return Consumer<HomeProvider>(
-            builder: (context, data, _) => MaterialApp(
-              title: 'Earn By Saving',
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                brightness:
-                    data.settings.isDark ? Brightness.dark : Brightness.light,
+        future: getSettings(context),
+        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+          if (snapshot.hasData) {
+            return Consumer<HomeProvider>(
+              builder: (context, data, _) => MaterialApp(
+                scrollBehavior: AppScrollBehavior(),
+                title: 'Earn By Saving',
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData(
+                  useMaterial3: true,
+                  colorSchemeSeed: const Color.fromARGB(255, 232, 251, 30),
+                  scaffoldBackgroundColor: snapshot.hasData
+                      ? data.settings.isDark
+                          ? Colors.grey[850]
+                          : Colors.grey[250]
+                      : Colors.grey[250],
+                  brightness: snapshot.hasData
+                      ? data.settings.isDark
+                          ? Brightness.dark
+                          : Brightness.light
+                      : MediaQueryData.fromWindow(
+                              WidgetsBinding.instance.window)
+                          .platformBrightness,
+                ),
+                initialRoute: routeByPlatform(PAGES.homePage.route),
+                routes: appRoutes,
               ),
-              initialRoute: routeByPlatform(PAGES.homePage.route),
-              routes: appRoutes,
-            ),
-          );
-        }
-        return MaterialApp(
-          title: 'Earn By Saving',
-          theme: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
-                      .platformBrightness ==
-                  Brightness.dark
-              ? ThemeData.dark()
-              : ThemeData.light(),
-          home: const Scaffold(
-            body: Center(
-              child: Text('Descifrando datos ...'),
-            ),
-          ),
-        );
-      },
-    );
+            );
+          }
+          return Container();
+        });
   }
+}
+
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

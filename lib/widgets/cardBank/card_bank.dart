@@ -1,28 +1,34 @@
 import 'package:eran_by_saving/constants/card_constant.dart';
+import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/model/card_model.dart';
+import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bbva_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bcp_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_interbank_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'card_scotiabank_widget.dart';
 
 class CardBankWithData extends StatelessWidget {
-  final CardModel card;
-  const CardBankWithData({Key? key, required this.card}) : super(key: key);
+  final CardModel? card;
+  const CardBankWithData({Key? key, this.card}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (card.card == CARD.BCP) {
-      return CardBank(card: const CardCurvoBCPCredimas(), data: card);
+    if (card == null) return const CardCurvoBCPCredimas();
+    if (card!.card == CARD.BCP) {
+      return CardBank(card: const CardCurvoBCPCredimas(), data: card!);
     }
-    if (card.card == CARD.BBVA) {
-      return CardBank(card: const CardCurvoBBVACompras(), data: card);
+    if (card!.card == CARD.BBVA) {
+      return CardBank(card: const CardCurvoBBVACompras(), data: card!);
     }
-
-    if (card.card == CARD.INTERBANK) {
-      return CardBank(card: const CardCurvoInterBank(), data: card);
+    if (card!.card == CARD.INTERBANK) {
+      return CardBank(card: const CardCurvoInterBank(), data: card!);
     }
-    return CardBank(card: const CardCurvoInterBank(), data: card);
+    if (card!.card == CARD.SCOTIABANK) {
+      return CardBank(card: const CardCurvoScotiaBank(), data: card!);
+    }
+    return CardBank(card: const CardCurvoInterBank(), data: card!);
   }
 }
 
@@ -51,7 +57,9 @@ class CardBank extends StatelessWidget {
                     Expanded(
                       child: Text(
                         data.name,
-                        style: const TextStyle(color: Colors.white),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 14),
+                        softWrap: true,
                       ),
                     ),
                   ],
@@ -66,17 +74,19 @@ class CardBank extends StatelessWidget {
                     children: [
                       Text(
                         data.nro,
-                        style: const TextStyle(color: Colors.white),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 13),
                       ),
                       Text(
                         "CCI: ${data.nroCCI}",
-                        style: const TextStyle(color: Colors.white),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 13),
                       ),
                     ],
                   ),
                   alignment: Alignment.centerLeft,
                 ),
-                flex: 4,
+                flex: 2,
               ),
               Expanded(
                 child: Row(
@@ -84,7 +94,7 @@ class CardBank extends StatelessWidget {
                   children: [
                     Text(
                       "\$ ${data.amount}",
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white, fontSize: 14),
                     ),
                     const FaIcon(FontAwesomeIcons.ccVisa, color: Colors.white),
                   ],
