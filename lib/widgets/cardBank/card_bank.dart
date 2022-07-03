@@ -1,7 +1,5 @@
 import 'package:eran_by_saving/constants/card_constant.dart';
-import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/model/card_model.dart';
-import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bbva_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bcp_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_interbank_widget.dart';
@@ -60,6 +58,7 @@ class CardBank extends StatelessWidget {
                         style:
                             const TextStyle(color: Colors.white, fontSize: 14),
                         softWrap: true,
+                        textScaleFactor: 1.1,
                       ),
                     ),
                   ],
@@ -76,17 +75,19 @@ class CardBank extends StatelessWidget {
                         data.nro,
                         style:
                             const TextStyle(color: Colors.white, fontSize: 13),
+                        textScaleFactor: 1,
                       ),
                       Text(
                         "CCI: ${data.nroCCI}",
                         style:
                             const TextStyle(color: Colors.white, fontSize: 13),
+                        textScaleFactor: 1,
                       ),
                     ],
                   ),
                   alignment: Alignment.centerLeft,
                 ),
-                flex: 2,
+                flex: 1,
               ),
               Expanded(
                 child: Row(
@@ -95,6 +96,7 @@ class CardBank extends StatelessWidget {
                     Text(
                       "\$ ${data.amount}",
                       style: const TextStyle(color: Colors.white, fontSize: 14),
+                      textScaleFactor: 1,
                     ),
                     const FaIcon(FontAwesomeIcons.ccVisa, color: Colors.white),
                   ],

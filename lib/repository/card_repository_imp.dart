@@ -5,6 +5,7 @@ import 'package:eran_by_saving/repository/cards_repository.dart';
 class CardRepositoryImp extends CardRepository {
   @override
   Future<List<CardModel>> getAllCards() async {
+    await Future.delayed(const Duration(milliseconds: 1500));
     return [
       CardModel(
         amount: 0.0,
@@ -37,6 +38,14 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "4859b7f2-3c67-4dd3-b477-3f760c7972a9",
+      ),
+      CardModel(
+        amount: 0.0,
+        card: CARD.BBVA,
+        name: "BBVA - Cuenta de ahorro en dólares",
+        nro: "123-xxx-123",
+        nroCCI: "123-xxx-123",
+        id: "4859b7f2-3c67-4dd3-b477-3f760c7972a0",
       ),
       CardModel(
         amount: 0.0,

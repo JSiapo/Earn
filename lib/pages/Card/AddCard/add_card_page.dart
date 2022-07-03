@@ -11,9 +11,7 @@ class AddCardPage extends StatelessWidget with BasePage {
   Widget build(BuildContext context) {
     Responsive responsive = Responsive(context);
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        ),
+        appBar: getclearAppBar(context),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,

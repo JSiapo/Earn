@@ -1,5 +1,6 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/firebase_config.dart';
+import 'package:eran_by_saving/start_data.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +40,7 @@ class MaterialWithTheme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool>(
-        future: getSettings(context),
+        future: startData(context),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
             return Consumer<HomeProvider>(
