@@ -11,7 +11,7 @@ void showCustomDialog(BuildContext context, Widget childWidget) {
       return Center(
         child: Container(
           height: 240,
-          child: const SizedBox.expand(child: FlutterLogo()),
+          child: SizedBox.expand(child: childWidget),
           margin: const EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(40)),

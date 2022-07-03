@@ -10,7 +10,7 @@ class CardRepositoryImp extends CardRepository {
       CardModel(
         amount: 0.0,
         card: CARD.BCP,
-        name: "BCP - Cuenta de ahorro en dólares",
+        name: "BCP - Cuenta de ahorro en soles",
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
@@ -18,7 +18,7 @@ class CardRepositoryImp extends CardRepository {
       CardModel(
         amount: 0.0,
         card: CARD.BCP,
-        name: "BCP - Cuenta de ahorro en soles",
+        name: "BCP - Cuenta de ahorro en dólares",
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "34d1b99a-fb8b-46f5-a536-fc5d58965e10",
