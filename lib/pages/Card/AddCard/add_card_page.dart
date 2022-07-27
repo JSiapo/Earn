@@ -1,8 +1,6 @@
-import 'package:barcode_widget/barcode_widget.dart';
 import 'package:eran_by_saving/pages/base.dart';
-import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:eran_by_saving/utils/show_bottom_alert.dart';
-import 'package:eran_by_saving/utils/show_dialog.dart';
+import 'package:eran_by_saving/widgets/cardBank/add_card_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,26 +10,17 @@ class AddCardPage extends StatelessWidget with BasePage {
 
   @override
   Widget build(BuildContext context) {
-    Responsive responsive = Responsive(context);
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              await scanQr(context);
+            },
+            child: const FaIcon(FontAwesomeIcons.qrcode)),
         appBar: getclearAppBar(context),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Center(
-              child: IconButton(
-                // color: Colors.white,
-                visualDensity: VisualDensity.comfortable,
-                iconSize: responsive.wp(5),
-                padding: const EdgeInsets.all(3),
-                onPressed: () async {
-                  await scanQr(context);
-                },
-                icon: const FaIcon(FontAwesomeIcons.qrcode),
-              ),
-            )
-          ],
+          children: const [Expanded(child: FormAddCard())],
         ));
   }
 }

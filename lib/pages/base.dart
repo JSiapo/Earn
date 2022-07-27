@@ -19,8 +19,8 @@ class BasePage {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Theme.of(context).scaffoldBackgroundColor,
-        statusBarIconBrightness: Brightness.light, // For Android (dark icons)
-        statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        //statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+        //statusBarBrightness: Brightness.light, // For iOS (dark icons)
       ),
     );
   }

@@ -4,6 +4,7 @@ enum PAGES {
   settingsPage,
   cardPage,
   addcardPage,
+  receiptPage,
 }
 
 extension PagesExt on PAGES {

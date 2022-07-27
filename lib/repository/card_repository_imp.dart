@@ -1,4 +1,5 @@
 import 'package:eran_by_saving/constants/card_constant.dart';
+import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/model/card_model.dart';
 import 'package:eran_by_saving/repository/cards_repository.dart';
 
@@ -14,6 +15,7 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
         amount: 0.0,
@@ -22,6 +24,7 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "34d1b99a-fb8b-46f5-a536-fc5d58965e10",
+        currency: CURRENCY.USD.toSimbol,
       ),
       CardModel(
         amount: 0.0,
@@ -30,6 +33,7 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "3a9bb15e-57a0-4df4-985e-63902c5eecf1",
+        currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
         amount: 0.0,
@@ -38,6 +42,7 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "4859b7f2-3c67-4dd3-b477-3f760c7972a9",
+        currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
         amount: 0.0,
@@ -46,6 +51,7 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "4859b7f2-3c67-4dd3-b477-3f760c7972a0",
+        currency: CURRENCY.USD.toSimbol,
       ),
       CardModel(
         amount: 0.0,
@@ -54,6 +60,7 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "41db3056-078e-4352-9484-a285f4a1ed6e",
+        currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
         amount: 0.0,
@@ -62,6 +69,7 @@ class CardRepositoryImp extends CardRepository {
         nro: "123-xxx-123",
         nroCCI: "123-xxx-123",
         id: "e1077d05-940d-40e2-8c6f-eba6a33995d2",
+        currency: CURRENCY.USD.toSimbol,
       ),
     ];
   }

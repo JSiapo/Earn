@@ -94,7 +94,7 @@ class CardBank extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "\$ ${data.amount}",
+                      "${data.currency} ${data.amount}",
                       style: const TextStyle(color: Colors.white, fontSize: 14),
                       textScaleFactor: 1,
                     ),

@@ -1,7 +1,5 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
-import 'package:eran_by_saving/model/card_model.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
-import 'package:eran_by_saving/provider/operations_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bank.dart';
 import 'package:flutter/material.dart';

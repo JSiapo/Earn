@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget with HomePageAbstract, BasePage {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Bienvenido de nuevo',
+                                            'Bienvenido(a) de nuevo',
                                             style: GoogleFonts.roboto(
                                               fontSize: responsive.dp(1.3),
                                             ),

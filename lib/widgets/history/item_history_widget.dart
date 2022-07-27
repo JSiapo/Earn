@@ -1,6 +1,8 @@
 import 'package:eran_by_saving/constants/operations_constants.dart';
+import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/ext/string_ext.dart';
 import 'package:eran_by_saving/model/operation_model.dart';
+import 'package:eran_by_saving/route/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -11,7 +13,9 @@ class HistoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        goTo(context, PAGES.receiptPage.route);
+      },
       leading: FaIcon(
           operation.isOffline ? "cloudArrowUp".toIcon : operation.icon.toIcon),
       title: Text(operation.name),
