@@ -5,6 +5,9 @@ enum PAGES {
   cardPage,
   addcardPage,
   receiptPage,
+  receivePage,
+  transferPage,
+  payPage,
 }
 
 extension PagesExt on PAGES {

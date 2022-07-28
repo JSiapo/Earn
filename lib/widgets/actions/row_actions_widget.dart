@@ -18,15 +18,15 @@ class ListActionsWidget extends StatelessWidget {
 List<Widget> actions() {
   return [
     ActionWidget(
-        route: PAGES.settingsPage.route,
+        route: PAGES.transferPage.route,
         icon: FontAwesomeIcons.arrowsRotate,
         text: "Transferir"),
     ActionWidget(
-        route: PAGES.settingsPage.route,
+        route: PAGES.payPage.route,
         icon: FontAwesomeIcons.receipt,
         text: "Pagar servicio"),
     ActionWidget(
-        route: PAGES.settingsPage.route,
+        route: PAGES.receivePage.route,
         icon: FontAwesomeIcons.coins,
         text: "Recibir"),
     ActionWidget(

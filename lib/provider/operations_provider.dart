@@ -10,7 +10,9 @@ class OperationProvider extends ChangeNotifier {
     operations = [
       Operation(
         name: "Hidrandina",
+        description: "Pago de servicio mensual de luz",
         cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        cardNumber: "****4455",
         dateStr: "02/07/2022",
         mount: 125.20,
         icon: "boltLightning",
@@ -19,7 +21,9 @@ class OperationProvider extends ChangeNotifier {
       ),
       Operation(
         name: "Sedalib",
+        description: "Pago de servicio mensual de agua",
         cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        cardNumber: "****4455",
         dateStr: "02/07/2022",
         mount: 125.20,
         icon: "droplet",
@@ -28,7 +32,9 @@ class OperationProvider extends ChangeNotifier {
       ),
       Operation(
         name: "Claro",
+        description: "Pago de servicio mensual de internet",
         cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        cardNumber: "****4455",
         dateStr: "02/07/2022",
         mount: 125.20,
         icon: "wifi",
@@ -37,7 +43,9 @@ class OperationProvider extends ChangeNotifier {
       ),
       Operation(
         name: "Quavi",
+        description: "Pago de servicio mensual de gas",
         cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        cardNumber: "****4455",
         dateStr: "02/07/2022",
         mount: 125.20,
         icon: "fireFlameCurved",
@@ -46,16 +54,20 @@ class OperationProvider extends ChangeNotifier {
       ),
       Operation(
         name: "Quavi",
+        description: "Pago de servicio mensual de gas",
         cardId: "3a9bb15e-57a0-4df4-985e-63902c5eecf1",
+        cardNumber: "****4455",
         dateStr: "02/07/2022",
         mount: 125.20,
         icon: "fireFlameCurved",
         operation: OPERATION.pay,
         currency: CURRENCY.PEN,
-      )..isOffline = true,
+      )..isOffline = false,
       Operation(
         name: "YAWI",
+        description: "Ingreso mensual",
         cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        cardNumber: "****4455",
         dateStr: "01/07/2022",
         mount: 1000.00,
         icon: "building",
@@ -64,7 +76,9 @@ class OperationProvider extends ChangeNotifier {
       )..isExpense = false,
       Operation(
         name: "FOCUS",
+        description: "Ingreso mensual",
         cardId: "4859b7f2-3c67-4dd3-b477-3f760c7972a0",
+        cardNumber: "****4455",
         dateStr: "02/07/2022",
         mount: 187.50,
         icon: "building",

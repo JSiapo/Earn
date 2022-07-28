@@ -47,6 +47,7 @@ dependencies:
   cached_network_image: ^3.2.1 #* ANDROID IOS MACOS (!WINDOWS !LINUX !WEB)
   # flutter_barcode_scanner: ^2.0.0 #* ANDROID IOS
   # camcode: ^2.2.0 #* ANDROID IOS WEB
+  photo_view: ^0.14.0 #* ANDROID IOS LINUX MACOS WEB WINDOWS
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -4,8 +4,11 @@ import 'package:eran_by_saving/constants.dart';
 import 'package:eran_by_saving/pages/Card/AddCard/add_card_page.dart';
 import 'package:eran_by_saving/pages/Card/card_page.dart';
 import 'package:eran_by_saving/pages/Decrypt/descpryt_page.dart';
+import 'package:eran_by_saving/pages/PayService/pay_service_page.dart';
 import 'package:eran_by_saving/pages/Receipt/receipt_page.dart';
+import 'package:eran_by_saving/pages/Receive/receive_page.dart';
 import 'package:eran_by_saving/pages/Settings/settings_page.dart';
+import 'package:eran_by_saving/pages/Transfer/transfer_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:eran_by_saving/pages/Home/home_page.dart';
@@ -45,4 +48,10 @@ Map<String, Widget Function(BuildContext)> appRoutes = {
   '/addcard_ios': (BuildContext _) => const AddCardPage(),
   '/receipt_ios': (BuildContext _) => const ReceiptPage(),
   '/receipt_android': (BuildContext _) => const ReceiptPage(),
+  '/receive_ios': (BuildContext _) => const ReceivePage(),
+  '/receive_android': (BuildContext _) => const ReceivePage(),
+  '/transfer_ios': (BuildContext _) => const TransferPage(),
+  '/transfer_android': (BuildContext _) => const TransferPage(),
+  '/pay_ios': (BuildContext _) => const PayServicePage(),
+  '/pay_android': (BuildContext _) => const PayServicePage(),
 };
