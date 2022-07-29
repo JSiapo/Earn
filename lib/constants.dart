@@ -20,5 +20,5 @@ PLATFORMS getPlatform({PLATFORMS? defaultPlatform}) {
   return PLATFORMS.adaptive;
 }
 
-final platformUI = getPlatform(defaultPlatform: PLATFORMS.ios);
+final platformUI = getPlatform(defaultPlatform: PLATFORMS.adaptive);
 final platform = getPlatform();

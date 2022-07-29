@@ -1,91 +1,21 @@
-import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/model/operation_model.dart';
+import 'package:eran_by_saving/repository/operation/operation_repository.dart';
+import 'package:eran_by_saving/repository/operation/operation_repository_imp.dart';
 import 'package:flutter/material.dart';
 
 class OperationProvider extends ChangeNotifier {
+  OperationRepository repository = OperationRepositoryImp();
   List<Operation> operations = [];
   List<Operation> operationsFiltered = [];
+  Operation? currentOperation;
+
+  setOperation(Operation operation) {
+    currentOperation = operation;
+    notifyListeners();
+  }
 
   Future<void> getAll() async {
-    operations = [
-      Operation(
-        name: "Hidrandina",
-        description: "Pago de servicio mensual de luz",
-        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
-        cardNumber: "****4455",
-        dateStr: "02/07/2022",
-        mount: 125.20,
-        icon: "boltLightning",
-        operation: OPERATION.pay,
-        currency: CURRENCY.PEN,
-      ),
-      Operation(
-        name: "Sedalib",
-        description: "Pago de servicio mensual de agua",
-        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
-        cardNumber: "****4455",
-        dateStr: "02/07/2022",
-        mount: 125.20,
-        icon: "droplet",
-        operation: OPERATION.pay,
-        currency: CURRENCY.PEN,
-      ),
-      Operation(
-        name: "Claro",
-        description: "Pago de servicio mensual de internet",
-        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
-        cardNumber: "****4455",
-        dateStr: "02/07/2022",
-        mount: 125.20,
-        icon: "wifi",
-        operation: OPERATION.pay,
-        currency: CURRENCY.PEN,
-      ),
-      Operation(
-        name: "Quavi",
-        description: "Pago de servicio mensual de gas",
-        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
-        cardNumber: "****4455",
-        dateStr: "02/07/2022",
-        mount: 125.20,
-        icon: "fireFlameCurved",
-        operation: OPERATION.pay,
-        currency: CURRENCY.PEN,
-      ),
-      Operation(
-        name: "Quavi",
-        description: "Pago de servicio mensual de gas",
-        cardId: "3a9bb15e-57a0-4df4-985e-63902c5eecf1",
-        cardNumber: "****4455",
-        dateStr: "02/07/2022",
-        mount: 125.20,
-        icon: "fireFlameCurved",
-        operation: OPERATION.pay,
-        currency: CURRENCY.PEN,
-      )..isOffline = false,
-      Operation(
-        name: "YAWI",
-        description: "Ingreso mensual",
-        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
-        cardNumber: "****4455",
-        dateStr: "01/07/2022",
-        mount: 1000.00,
-        icon: "building",
-        operation: OPERATION.pay,
-        currency: CURRENCY.PEN,
-      )..isExpense = false,
-      Operation(
-        name: "FOCUS",
-        description: "Ingreso mensual",
-        cardId: "4859b7f2-3c67-4dd3-b477-3f760c7972a0",
-        cardNumber: "****4455",
-        dateStr: "02/07/2022",
-        mount: 187.50,
-        icon: "building",
-        operation: OPERATION.pay,
-        currency: CURRENCY.USD,
-      )..isExpense = false
-    ];
+    operations = await repository.getAllOperation();
   }
 
   findOperationsFiltered(String? id) {

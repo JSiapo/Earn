@@ -1,7 +1,7 @@
 import 'package:eran_by_saving/constants/card_constant.dart';
 import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/model/card_model.dart';
-import 'package:eran_by_saving/repository/cards_repository.dart';
+import 'package:eran_by_saving/repository/card/cards_repository.dart';
 
 class CardRepositoryImp extends CardRepository {
   @override
@@ -9,7 +9,7 @@ class CardRepositoryImp extends CardRepository {
     await Future.delayed(const Duration(milliseconds: 1500));
     return [
       CardModel(
-        amount: 0.0,
+        amount: 2002,
         card: CARD.BCP,
         name: "BCP - Cuenta de ahorro en soles",
         nro: "123-xxx-123",
@@ -18,7 +18,7 @@ class CardRepositoryImp extends CardRepository {
         currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
-        amount: 0.0,
+        amount: 100.0,
         card: CARD.BCP,
         name: "BCP - Cuenta de ahorro en dólares",
         nro: "123-xxx-123",

@@ -29,9 +29,10 @@ class _HistoryListState extends State<HistoryList> {
       return RefreshIndicator(
         onRefresh: () async {
           await Future.delayed(const Duration(milliseconds: 1500));
-          context
+          await context
               .read<OperationProvider>()
               .findOperationsFiltered(cardData.card?.id);
+          await context.read<CardProvider>().refresh();
         },
         child: context.watch<OperationProvider>().operationsFiltered.isEmpty
             ? Stack(

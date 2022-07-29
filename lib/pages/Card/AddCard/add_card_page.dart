@@ -37,7 +37,7 @@ Future<void> scanQr(BuildContext context) async {
 Future<String> scanResult() async {
   try {
     String scanResult = await FlutterBarcodeScanner.scanBarcode(
-        "#f6d15f", "Cancelar", false, ScanMode.QR);
+        "#f6d15f", "Cancelar", true, ScanMode.QR);
     return scanResult;
   } catch (e) {
     return "";

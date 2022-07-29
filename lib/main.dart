@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 // import 'package:eran_by_saving/constants.dart';
-import 'package:eran_by_saving/hive_config.dart' show initHive, getSettings;
+import 'package:eran_by_saving/hive_config.dart' show initHive;
 import 'package:eran_by_saving/provider_config.dart' show providers;
 
 import 'package:eran_by_saving/route/routes.dart'

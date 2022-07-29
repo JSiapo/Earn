@@ -1,3 +1,4 @@
+import 'package:eran_by_saving/utils/confirm_dialog.dart';
 import 'package:flutter/material.dart';
 
 class FormAddCard extends StatefulWidget {
@@ -44,30 +45,13 @@ class _FormAddCardState extends State<FormAddCard> {
                     if (_formKey.currentState!.validate()) {
                       // If the form is valid, display a snackbar. In the real world,
                       // you'd often call a server or save the information in a database.
-                      var alert = AlertDialog(
-                        title: const Text("AlertDialog"),
-                        content: const Text(
-                            "Would you like to continue learning how to use Flutter alerts?"),
-                        actions: [
-                          MaterialButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('SI')),
-                          MaterialButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('NO')),
-                        ],
-                      );
-                      // show the dialog
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return alert;
-                        },
-                      );
+                      confirmDialog(context, () {
+                        Navigator.pop(context);
+                      }, () {
+                        Navigator.pop(context);
+                      },
+                          title: "TARJETA",
+                          message: "¿Desea agregar ésta tarjeta?");
                     }
                   }
                 },

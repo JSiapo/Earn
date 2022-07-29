@@ -45,9 +45,10 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0 #* ANDROID IOS
   badges: ^2.0.3 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   cached_network_image: ^3.2.1 #* ANDROID IOS MACOS (!WINDOWS !LINUX !WEB)
-  # flutter_barcode_scanner: ^2.0.0 #* ANDROID IOS
-  # camcode: ^2.2.0 #* ANDROID IOS WEB
   photo_view: ^0.14.0 #* ANDROID IOS LINUX MACOS WEB WINDOWS
+  simple_speed_dial: ^0.1.7 #* ANDROID IOS LINUX MACOS WEB WINDOWS
+  flutter_slidable: ^2.0.0 #* ANDROID IOS LINUX MACOS WEB WINDOWS
+  uuid: ^3.0.6 #* ANDROID IOS LINUX MACOS WEB WINDOWS
 dev_dependencies:
   flutter_test:
     sdk: flutter
