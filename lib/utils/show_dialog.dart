@@ -6,7 +6,7 @@ void showCustomDialog(BuildContext context, Widget childWidget,
     context: context,
     barrierLabel: "Barrier",
     barrierDismissible: true,
-    barrierColor: Colors.black.withOpacity(0.6),
+    barrierColor: Colors.black.withOpacity(0.7),
     transitionDuration: const Duration(milliseconds: 200),
     pageBuilder: (_, __, ___) {
       return Center(

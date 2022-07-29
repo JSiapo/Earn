@@ -122,9 +122,12 @@ class ReceiptPage extends StatelessWidget with BasePage {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: CachedNetworkImage(
-                              imageUrl:
-                                  "https://noticiasresponsables.com/wp-content/uploads/2019/07/Hidrandina.jpg",
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                    "https://noticiasresponsables.com/wp-content/uploads/2019/07/Hidrandina.jpg",
+                              ),
                             ),
                           ),
                         ),
@@ -144,9 +147,12 @@ class ReceiptPage extends StatelessWidget with BasePage {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: CachedNetworkImage(
-                              imageUrl:
-                                  "https://noticiasresponsables.com/wp-content/uploads/2020/07/Hidrandina-1299x1536.jpg",
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                    "https://noticiasresponsables.com/wp-content/uploads/2020/07/Hidrandina-1299x1536.jpg",
+                              ),
                             ),
                           ),
                         ),
@@ -166,9 +172,12 @@ class ReceiptPage extends StatelessWidget with BasePage {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: CachedNetworkImage(
-                              imageUrl:
-                                  "https://www.rumbominero.com/wp-content/uploads/2019/02/hidrandina-invertira-93-millones-de-soles-para-mejorar-servicio-electrico-principalmente-en-trujillo.jpg",
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                    "https://www.rumbominero.com/wp-content/uploads/2019/02/hidrandina-invertira-93-millones-de-soles-para-mejorar-servicio-electrico-principalmente-en-trujillo.jpg",
+                              ),
                             ),
                           ),
                         ),
