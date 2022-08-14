@@ -8,6 +8,7 @@ class CardModel {
   final double amount;
   final String id;
   final String currency;
+  final status = true;
 
   CardModel({
     required this.card,

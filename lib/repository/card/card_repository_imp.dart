@@ -27,7 +27,7 @@ class CardRepositoryImp extends CardRepository {
         currency: CURRENCY.USD.toSimbol,
       ),
       CardModel(
-        amount: 0.0,
+        amount: 200.0,
         card: CARD.INTERBANK,
         name: "INTERBANK - Cuenta de ahorro en soles",
         nro: "123-xxx-123",
@@ -36,7 +36,7 @@ class CardRepositoryImp extends CardRepository {
         currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
-        amount: 0.0,
+        amount: 250.0,
         card: CARD.BBVA,
         name: "BBVA - Cuenta de ahorro en soles",
         nro: "123-xxx-123",
@@ -45,7 +45,7 @@ class CardRepositoryImp extends CardRepository {
         currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
-        amount: 0.0,
+        amount: 280.0,
         card: CARD.BBVA,
         name: "BBVA - Cuenta de ahorro en dólares",
         nro: "123-xxx-123",
@@ -54,7 +54,7 @@ class CardRepositoryImp extends CardRepository {
         currency: CURRENCY.USD.toSimbol,
       ),
       CardModel(
-        amount: 0.0,
+        amount: 300.0,
         card: CARD.SCOTIABANK,
         name: "SCOTIABANK - Cuenta de ahorro en soles",
         nro: "123-xxx-123",
@@ -63,7 +63,7 @@ class CardRepositoryImp extends CardRepository {
         currency: CURRENCY.PEN.toSimbol,
       ),
       CardModel(
-        amount: 0.0,
+        amount: 500.0,
         card: CARD.SCOTIABANK,
         name: "SCOTIABANK - Cuenta de ahorro en dólares",
         nro: "123-xxx-123",

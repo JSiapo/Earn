@@ -15,7 +15,12 @@ List<SingleChildWidget> providers() {
 }
 
 Future<void> start(BuildContext context) async {
-  await context.read<HomeProvider>().loadSetting();
-  await context.read<CardProvider>().getAll();
-  await context.read<OperationProvider>().getAll();
+  await Future.wait([
+    context.read<HomeProvider>().loadSetting(),
+    context.read<CardProvider>().getAll(),
+    context.read<OperationProvider>().getAll(),
+  ]);
+  // await context.read<HomeProvider>().loadSetting();
+  // await context.read<CardProvider>().getAll();
+  // await context.read<OperationProvider>().getAll();
 }

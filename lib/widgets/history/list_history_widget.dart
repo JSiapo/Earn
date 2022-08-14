@@ -28,11 +28,14 @@ class _HistoryListState extends State<HistoryList> {
     return Consumer<CardProvider>(builder: (context, cardData, _) {
       return RefreshIndicator(
         onRefresh: () async {
-          await Future.delayed(const Duration(milliseconds: 1500));
+          await Future.wait([
+            Future.delayed(const Duration(milliseconds: 1500)),
+            context.read<CardProvider>().refresh(),
+            context.read<OperationProvider>().refresh(),
+          ]);
           await context
               .read<OperationProvider>()
               .findOperationsFiltered(cardData.card?.id);
-          await context.read<CardProvider>().refresh();
         },
         child: context.watch<OperationProvider>().operationsFiltered.isEmpty
             ? Stack(

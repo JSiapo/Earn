@@ -13,6 +13,7 @@ class Operation {
   double mount;
   bool isOffline = false;
   bool isExpense = true;
+  bool status = true;
   List<String> evidence = [];
 
   Operation({
