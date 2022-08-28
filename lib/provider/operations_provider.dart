@@ -36,6 +36,15 @@ class OperationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  clearAll() {
+    operations = [];
+    operationsFiltered = [];
+    operationsEarning = [];
+    operationsExpenses = [];
+    currentOperation = null;
+    notifyListeners();
+  }
+
   List<Map<String, dynamic>> dataChart() {
     return operationsFiltered
         .map(

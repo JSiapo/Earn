@@ -1,15 +1,20 @@
 import 'package:barcode_widget/barcode_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eran_by_saving/constants/operations_constants.dart';
+import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
+import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
-import 'package:eran_by_saving/utils/to_chart_data.dart';
+// import 'package:eran_by_saving/utils/to_chart_data.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bank.dart';
-import 'package:eran_by_saving/widgets/chart/pie_chart.dart';
-import 'package:eran_by_saving/widgets/history/list_history_widget.dart';
+// import 'package:eran_by_saving/widgets/chart/pie_chart.dart';
+// import 'package:eran_by_saving/widgets/history/list_history_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
 
@@ -76,8 +81,8 @@ class CardPage extends StatelessWidget with BasePage {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
-                        constraints:
-                            const BoxConstraints(maxHeight: 350, maxWidth: 400),
+                        constraints: BoxConstraints(
+                            minHeight: responsive.isLandscape ? 250 : 190),
                         height: responsive.hp(25),
                         width: responsive.wp(80),
                         child: CardBankWithData(card: data.card!),
@@ -130,6 +135,209 @@ class CardPage extends StatelessWidget with BasePage {
                       ],
                     ),
                   ),
+
+                  const Divider(),
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 18),
+                        child: Text(
+                          'PROPIETARIO',
+                          style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: Text(
+                        data.card!.owner.name,
+                        style: GoogleFonts.roboto(),
+                      ),
+                      leading: CachedNetworkImage(
+                        imageUrl: data.card!.owner.image,
+                        imageBuilder: (context, imageProvider) => CircleAvatar(
+                          // radius: responsive.wp(7),
+                          maxRadius: responsive.isLandscape
+                              ? responsive.wp(4)
+                              : responsive.wp(5),
+                          minRadius: responsive.wp(3),
+                          backgroundColor: Theme.of(context).cardColor,
+                          backgroundImage: imageProvider,
+                        ),
+                        placeholder: (context, url) => CircleAvatar(
+                          radius: responsive.wp(5),
+                          backgroundColor:
+                              Theme.of(context).scaffoldBackgroundColor,
+                          child: IconButton(
+                            // color: Colors.white,
+                            visualDensity: VisualDensity.comfortable,
+                            iconSize: responsive.wp(6),
+                            onPressed: () {},
+                            icon: const FaIcon(FontAwesomeIcons.user),
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => CircleAvatar(
+                          radius: responsive.wp(5),
+                          backgroundColor:
+                              Theme.of(context).scaffoldBackgroundColor,
+                          child: IconButton(
+                            // color: Colors.white,
+                            visualDensity: VisualDensity.comfortable,
+                            iconSize: responsive.wp(6),
+                            onPressed: () {},
+                            icon: const FaIcon(FontAwesomeIcons.user),
+                          ),
+                        ),
+                      ),
+                      trailing: data.card!.owner.mount > 0
+                          ? Text(
+                              '${data.card!.currency} ${data.card!.owner.mount.toStringAsFixed(2)}',
+                              style: GoogleFonts.lato(),
+                            )
+                          : null,
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  if (data.card!.guests.isNotEmpty)
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 18),
+                          child: Text(
+                            'INVITADOS',
+                            style:
+                                GoogleFonts.lato(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  if (data.card!.guests.isNotEmpty)
+                    SizedBox(
+                      height: responsive.hp(20),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListView(
+                          children: data.card!.guests
+                              .map((e) => ListTile(
+                                    isThreeLine: true,
+                                    title: Text(
+                                      e.name,
+                                      style: GoogleFonts.roboto(),
+                                    ),
+                                    subtitle: Text('Fecha: ${e.fecha}'),
+                                    leading: CachedNetworkImage(
+                                      imageUrl: e.image,
+                                      imageBuilder: (context, imageProvider) =>
+                                          CircleAvatar(
+                                        // radius: responsive.wp(5),
+                                        maxRadius: responsive.isLandscape
+                                            ? responsive.wp(4)
+                                            : responsive.wp(5),
+                                        minRadius: responsive.wp(3),
+                                        backgroundColor:
+                                            Theme.of(context).cardColor,
+                                        backgroundImage: imageProvider,
+                                      ),
+                                      placeholder: (context, url) =>
+                                          CircleAvatar(
+                                        radius: responsive.wp(5),
+                                        backgroundColor: Theme.of(context)
+                                            .scaffoldBackgroundColor,
+                                        child: IconButton(
+                                          // color: Colors.white,
+                                          visualDensity:
+                                              VisualDensity.comfortable,
+                                          iconSize: responsive.wp(6),
+                                          onPressed: () {},
+                                          icon: const FaIcon(
+                                              FontAwesomeIcons.user),
+                                        ),
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          CircleAvatar(
+                                        radius: responsive.wp(5),
+                                        backgroundColor: Theme.of(context)
+                                            .scaffoldBackgroundColor,
+                                        child: IconButton(
+                                          // color: Colors.white,
+                                          visualDensity:
+                                              VisualDensity.comfortable,
+                                          iconSize: responsive.wp(6),
+                                          onPressed: () {},
+                                          icon: const FaIcon(
+                                              FontAwesomeIcons.user),
+                                        ),
+                                      ),
+                                    ),
+                                    trailing: Text(
+                                      '${data.card!.currency} ${e.mount.toStringAsFixed(2)}',
+                                      style: GoogleFonts.lato(),
+                                    ),
+                                  ))
+                              .toList(),
+                          // [
+
+                          //   ListTile(
+                          //     isThreeLine: true,
+                          //     title: Text(
+                          //       'José Luis Octavio Siapo Rodríguez',
+                          //       style: GoogleFonts.roboto(),
+                          //     ),
+                          //     subtitle: const Text('Fecha: 28/07/2022'),
+                          //     leading: CachedNetworkImage(
+                          //       imageUrl:
+                          //           "https://images.pexels.com/photos/2076494/pexels-photo-2076494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                          //       imageBuilder: (context, imageProvider) =>
+                          //           CircleAvatar(
+                          //         // radius: responsive.wp(7),
+                          //         maxRadius: responsive.isLandscape
+                          //             ? responsive.wp(4)
+                          //             : responsive.wp(5),
+                          //         minRadius: responsive.wp(3),
+                          //         backgroundColor: Theme.of(context).cardColor,
+                          //         backgroundImage: imageProvider,
+                          //       ),
+                          //     ),
+                          //     trailing: Text(
+                          //       'S./ 3500.00',
+                          //       style: GoogleFonts.lato(),
+                          //     ),
+                          //   ),
+                          //   ListTile(
+                          //     isThreeLine: true,
+                          //     title: Text(
+                          //       'José Luis Octavio Siapo Rodríguez',
+                          //       style: GoogleFonts.roboto(),
+                          //     ),
+                          //     subtitle: const Text('Fecha: 28/07/2022'),
+                          //     leading: CachedNetworkImage(
+                          //       imageUrl:
+                          //           "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                          //       imageBuilder: (context, imageProvider) =>
+                          //           CircleAvatar(
+                          //         // radius: responsive.wp(7),
+                          //         maxRadius: responsive.isLandscape
+                          //             ? responsive.wp(4)
+                          //             : responsive.wp(5),
+                          //         minRadius: responsive.wp(3),
+                          //         backgroundColor: Theme.of(context).cardColor,
+                          //         backgroundImage: imageProvider,
+                          //       ),
+                          //     ),
+                          //     trailing: Text(
+                          //       'S./ 3500.00',
+                          //       style: GoogleFonts.lato(),
+                          //     ),
+                          //   ),
+                          // ],
+                        ),
+                      ),
+                    )
                   // TODO pie chart
                   // dataOperation.operationsFiltered.isNotEmpty
                   //     ? SizedBox(

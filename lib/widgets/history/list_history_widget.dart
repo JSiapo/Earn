@@ -30,7 +30,7 @@ class _HistoryListState extends State<HistoryList> {
         onRefresh: () async {
           await Future.wait([
             Future.delayed(const Duration(milliseconds: 1500)),
-            context.read<CardProvider>().refresh(),
+            context.read<CardProvider>().refresh(context),
             context.read<OperationProvider>().refresh(),
           ]);
           await context

@@ -15,16 +15,21 @@ class CardList extends StatefulWidget {
 class _CardListState extends State<CardList> {
   final PageController pageController = PageController();
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   final page = context.read<HomeProvider>().indexCard;
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     if (pageController.hasClients) {
-  //       pageController.jumpToPage(page);
-  //     }
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    if (context.read<CardProvider>().card != null) {
+      final page = context
+          .read<CardProvider>()
+          .cards
+          .indexOf(context.read<CardProvider>().card!);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (pageController.hasClients) {
+          pageController.jumpToPage(page);
+        }
+      });
+    }
+  }
 
   @override
   void dispose() {

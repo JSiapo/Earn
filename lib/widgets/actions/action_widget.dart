@@ -26,6 +26,7 @@ class ActionWidget extends StatelessWidget {
           child: Tooltip(
             message: text,
             child: Card(
+              elevation: 5,
               child: Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: responsive.wp(5),

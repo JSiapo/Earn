@@ -26,9 +26,14 @@ class Responsive {
   bool get isTablet => _isTablet;
   bool get isDesktop => _isDesktop;
   bool get isMobile => _isMobile;
+  bool get isLandscape => _orientation == Orientation.landscape;
   Orientation get orientation => _orientation;
 
   double wp(double percent) => _width * percent / 100;
   double hp(double percent) => _height * percent / 100;
   double dp(double percent) => _diagonal * percent / 100;
+
+  double wf(double fraction) => _width * fraction;
+  double hf(double fraction) => _height * fraction;
+  double df(double fraction) => _diagonal * fraction;
 }

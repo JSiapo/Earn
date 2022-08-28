@@ -22,15 +22,35 @@ class CardProvider extends ChangeNotifier {
     return true;
   }
 
-  Future<void> refresh() async {
+  Future<void> refresh(BuildContext ctx) async {
     _cards = await repository.getAllCards();
-    notifyListeners();
+    cards = _cards;
+    if (_cards.isEmpty) {
+      card = null;
+    } else {
+      updateCurrentCard(ctx);
+    }
   }
 
   setFirstCard() {
     if (card == null && _cards.isNotEmpty) {
       card = _cards[0];
     }
+  }
+
+  updateCurrentCard(BuildContext ctx) {
+    if (card != null && _cards.isNotEmpty) {
+      card = _cards.firstWhere((element) => element.id == card!.id);
+    }
+    if (card == null && _cards.isNotEmpty) {
+      setFirstCard();
+      ctx.read<OperationProvider>().findOperationsFiltered(card?.id);
+      // card = _cards.firstWhere((element) => element.id == card!.id);
+    }
+    if (_cards.isEmpty) {
+      ctx.read<OperationProvider>().clearAll();
+    }
+    notifyListeners();
   }
 
   Future<void> setCardByPosition(BuildContext ctx, int position,

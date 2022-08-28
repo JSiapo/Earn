@@ -1,4 +1,5 @@
 import 'package:eran_by_saving/constants/card_constant.dart';
+import 'package:eran_by_saving/model/card_user_model.dart';
 
 class CardModel {
   final CARD card;
@@ -9,6 +10,8 @@ class CardModel {
   final String id;
   final String currency;
   final status = true;
+  final CardUserModel owner;
+  final List<CardUserModel> guests;
 
   CardModel({
     required this.card,
@@ -18,5 +21,7 @@ class CardModel {
     required this.amount,
     required this.id,
     required this.currency,
+    required this.owner,
+    required this.guests,
   });
 }
