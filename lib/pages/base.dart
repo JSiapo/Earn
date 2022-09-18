@@ -11,12 +11,16 @@ class BasePage {
       title: title != null
           ? Text(
               title,
-              style: GoogleFonts.lato(),
+              style: GoogleFonts.lato(fontSize: 18),
             )
           : null,
       toolbarHeight: toolbarHeight,
+      elevation: 0,
       actions: actions,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      centerTitle: true,
+      toolbarOpacity: 1,
+      bottomOpacity: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Theme.of(context).scaffoldBackgroundColor,
         //statusBarIconBrightness: Brightness.light, // For Android (dark icons)

@@ -23,5 +23,7 @@ IconData getIcon(String name) {
   if (name == "globe") return FontAwesomeIcons.globe;
   if (name == "fileInvoiceDollar") return FontAwesomeIcons.fileInvoiceDollar;
   if (name == "building") return FontAwesomeIcons.building;
+  if (name == "creditCard") return FontAwesomeIcons.creditCard;
+  if (name == "paperPlane") return FontAwesomeIcons.paperPlane;
   return FontAwesomeIcons.moneyBill;
 }

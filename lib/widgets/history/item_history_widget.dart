@@ -2,6 +2,7 @@ import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/ext/string_ext.dart';
 import 'package:eran_by_saving/model/operation_model.dart';
+import 'package:eran_by_saving/provider/loading_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/confirm_dialog.dart';
@@ -29,7 +30,10 @@ class HistoryItem extends StatelessWidget {
           SlidableAction(
             onPressed: (ctx) {
               confirmDialog(context, () async {
+                context.read<LoadingProvider>().setLoading(true);
                 Navigator.pop(context);
+                await Future.delayed(const Duration(milliseconds: 8500));
+                context.read<LoadingProvider>().setLoading(false);
               }, () async {
                 Navigator.pop(context);
               },

@@ -11,7 +11,7 @@ class OperationRepositoryImp extends OperationRepository {
 
   @override
   Future<List<Operation>> getAllOperation() async {
-    await Future.delayed(const Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 3500));
     return [
       Operation(
         id: "298ac65c-7021-4b9b-97c7-f3818185bf2b",

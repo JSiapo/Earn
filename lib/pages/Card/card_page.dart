@@ -66,6 +66,13 @@ class CardPage extends StatelessWidget with BasePage {
                   label: 'Editar',
                   onPressed: () async {},
                 ),
+                SpeedDialChild(
+                  child: const Icon(Icons.add),
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.blue,
+                  label: 'Invitar',
+                  onPressed: () async {},
+                ),
               ],
               child: const Icon(Icons.account_balance_wallet_sharp),
             ),
@@ -83,7 +90,7 @@ class CardPage extends StatelessWidget with BasePage {
                       child: Container(
                         constraints: BoxConstraints(
                             minHeight: responsive.isLandscape ? 250 : 190),
-                        height: responsive.hp(25),
+                        height: responsive.hp(27),
                         width: responsive.wp(80),
                         child: CardBankWithData(card: data.card!),
                       ),

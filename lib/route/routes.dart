@@ -4,9 +4,12 @@ import 'package:eran_by_saving/constants.dart';
 import 'package:eran_by_saving/pages/Card/AddCard/add_card_page.dart';
 import 'package:eran_by_saving/pages/Card/card_page.dart';
 import 'package:eran_by_saving/pages/Decrypt/descpryt_page.dart';
+import 'package:eran_by_saving/pages/Login/login_page.dart';
+import 'package:eran_by_saving/pages/Notifications/notification_page.dart';
 import 'package:eran_by_saving/pages/PayService/pay_service_page.dart';
 import 'package:eran_by_saving/pages/Receipt/receipt_page.dart';
 import 'package:eran_by_saving/pages/Receive/receive_page.dart';
+import 'package:eran_by_saving/pages/Redirect/redirect_page.dart';
 import 'package:eran_by_saving/pages/Settings/settings_page.dart';
 import 'package:eran_by_saving/pages/Transfer/transfer_page.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +25,11 @@ String routeByPlatform(String route) {
   return route;
 }
 
-void goTo(BuildContext context, String route) {
-  Navigator.pushNamed(context, routeByPlatform(route));
+void goTo(BuildContext context, String route, {bool replace = false}) {
+  if (replace)
+    Navigator.pushReplacementNamed(context, routeByPlatform(route));
+  else
+    Navigator.pushNamed(context, routeByPlatform(route));
 }
 
 void goBack(BuildContext context) {
@@ -54,4 +60,10 @@ Map<String, Widget Function(BuildContext)> appRoutes = {
   '/transfer_android': (BuildContext _) => const TransferPage(),
   '/pay_ios': (BuildContext _) => const PayServicePage(),
   '/pay_android': (BuildContext _) => const PayServicePage(),
+  '/login_ios': (BuildContext _) => const LoginPage(),
+  '/login_android': (BuildContext _) => const LoginPage(),
+  '/redirect_ios': (BuildContext _) => const RedirectPage(),
+  '/redirect_android': (BuildContext _) => const RedirectPage(),
+  '/notification_ios': (BuildContext _) => const NotificationPage(),
+  '/notification_android': (BuildContext _) => const NotificationPage(),
 };

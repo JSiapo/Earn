@@ -4,7 +4,7 @@ import 'package:eran_by_saving/hive/hive_data/settings_data.dart';
 import 'package:eran_by_saving/model/settings_model.dart';
 
 class HomeProvider extends ChangeNotifier {
-  late Settings settings;
+  Settings settings = const Settings(isDark: true);
   int indexPage = 0;
 
   Future<Settings> getSettings() async {
@@ -19,6 +19,12 @@ class HomeProvider extends ChangeNotifier {
 
   Future<void> toogleTheme() async {
     settings = settings.copy(isDark: !settings.isDark);
+    await saveSettings();
+    notifyListeners();
+  }
+
+  Future<void> setTheme(bool isDark) async {
+    settings = Settings(isDark: isDark);
     await saveSettings();
     notifyListeners();
   }

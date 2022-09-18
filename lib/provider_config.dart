@@ -1,4 +1,5 @@
 import 'package:eran_by_saving/provider/card_provider.dart';
+import 'package:eran_by_saving/provider/loading_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,7 @@ List<SingleChildWidget> providers() {
     ChangeNotifierProvider(create: (_) => HomeProvider()),
     ChangeNotifierProvider(create: (_) => CardProvider()),
     ChangeNotifierProvider(create: (_) => OperationProvider()),
+    ChangeNotifierProvider(create: (_) => LoadingProvider()),
   ].toList();
 }
 

@@ -39,38 +39,25 @@ class MaterialWithTheme extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<bool>(
-        future: startData(context),
-        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-          if (snapshot.hasData) {
-            return Consumer<HomeProvider>(
-              builder: (context, data, _) => MaterialApp(
-                scrollBehavior: AppScrollBehavior(),
-                title: 'Earn By Saving',
-                debugShowCheckedModeBanner: false,
-                theme: ThemeData(
-                  useMaterial3: true,
-                  colorSchemeSeed: const Color.fromARGB(255, 232, 251, 30),
-                  scaffoldBackgroundColor: snapshot.hasData
-                      ? data.settings.isDark
-                          ? Colors.grey[850]
-                          : Colors.grey[250]
-                      : Colors.grey[250],
-                  brightness: snapshot.hasData
-                      ? data.settings.isDark
-                          ? Brightness.dark
-                          : Brightness.light
-                      : MediaQueryData.fromWindow(
-                              WidgetsBinding.instance.window)
-                          .platformBrightness,
-                ),
-                initialRoute: routeByPlatform(PAGES.homePage.route),
-                routes: appRoutes,
-              ),
-            );
-          }
-          return Container();
-        });
+    return Consumer<HomeProvider>(
+      builder: (context, data, _) => MaterialApp(
+        scrollBehavior: AppScrollBehavior(),
+        title: 'Earn By Saving',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          colorSchemeSeed: const Color.fromARGB(255, 232, 251, 30),
+          scaffoldBackgroundColor:
+              data.settings.isDark ? Colors.grey[850] : Colors.grey[50],
+          brightness: data.settings.isDark ? Brightness.dark : Brightness.light,
+          // : MediaQueryData.fromWindow(
+          //         WidgetsBinding.instance.window)
+          //     .platformBrightness,
+        ),
+        initialRoute: routeByPlatform(PAGES.redirectPage.route),
+        routes: appRoutes,
+      ),
+    );
   }
 }
 

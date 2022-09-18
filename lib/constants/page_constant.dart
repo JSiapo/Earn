@@ -1,6 +1,9 @@
 enum PAGES {
   decrpytPage,
   homePage,
+  redirectPage,
+  notificationPage,
+  loginPage,
   settingsPage,
   cardPage,
   addcardPage,
