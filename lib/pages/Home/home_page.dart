@@ -7,12 +7,12 @@ import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/loading_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:eran_by_saving/widgets/actions/row_actions_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_list_widget.dart';
 import 'package:eran_by_saving/widgets/history/list_history_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -26,14 +26,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with HomePageAbstract, BasePage {
-  bool isLoading = false;
-
-  setLoading(bool value) {
-    setState(() {
-      isLoading = value;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -60,9 +52,7 @@ class _HomePageState extends State<HomePage> with HomePageAbstract, BasePage {
               builder: (context, data, _) {
                 return Stack(
                   children: [
-                    HomePageWidget(
-                      setLoading: setLoading,
-                    ),
+                    const HomePageWidget(),
                     if (context.watch<LoadingProvider>().isLoading)
                       const LoadingPage(),
                     // Positioned(
@@ -115,8 +105,7 @@ class _HomePageState extends State<HomePage> with HomePageAbstract, BasePage {
 }
 
 class HomePageWidget extends StatelessWidget {
-  final Function setLoading;
-  const HomePageWidget({Key? key, required this.setLoading}) : super(key: key);
+  const HomePageWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -198,7 +187,7 @@ class HomePageWidget extends StatelessWidget {
                               onPressed: () {
                                 goTo(context, PAGES.settingsPage.route);
                               },
-                              icon: const FaIcon(FontAwesomeIcons.user),
+                              icon: getIconWidget(IconsAvailables.user),
                             ),
                           ),
                           errorWidget: (context, url, error) => CircleAvatar(
@@ -212,7 +201,7 @@ class HomePageWidget extends StatelessWidget {
                               onPressed: () {
                                 goTo(context, PAGES.settingsPage.route);
                               },
-                              icon: const FaIcon(FontAwesomeIcons.user),
+                              icon: getIconWidget(IconsAvailables.user),
                             ),
                           ),
                         ),
@@ -255,7 +244,7 @@ class HomePageWidget extends StatelessWidget {
                     onPressed: () {
                       goTo(context, PAGES.addcardPage.route);
                     },
-                    icon: const FaIcon(FontAwesomeIcons.plus),
+                    icon: getIconWidget(IconsAvailables.plus),
                   )
                 ],
               ),

@@ -11,7 +11,7 @@ class OperationRepositoryImp extends OperationRepository {
 
   @override
   Future<List<Operation>> getAllOperation() async {
-    await Future.delayed(const Duration(milliseconds: 3500));
+    await Future.delayed(const Duration(milliseconds: 4500));
     return [
       Operation(
         id: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
@@ -38,6 +38,45 @@ class OperationRepositoryImp extends OperationRepository {
         dateStr: "02/07/2022",
         mount: 42.20,
         icon: "droplet",
+        operation: OPERATION.pay,
+        currency: CURRENCY.PEN,
+        evidence: [],
+      ),
+      Operation(
+        id: "298ac65c-7021-4b9b-97c7-f3818185bf4a",
+        name: "Yape",
+        description: "Yape a Lili Rodríguez Urbina",
+        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        accountNumber: "****4455",
+        dateStr: "21/09/2022",
+        mount: 49.20,
+        icon: "commentsDollar",
+        operation: OPERATION.transfer,
+        currency: CURRENCY.PEN,
+        evidence: [],
+      ),
+      Operation(
+        id: "298ac65c-7021-4b9b-97c7-f3818185bf4b",
+        name: "Transporte",
+        description: "Viaje de FisioHelp a casa por yape",
+        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        accountNumber: "****4455",
+        dateStr: "20/09/2022",
+        mount: 8.50,
+        icon: "taxi",
+        operation: OPERATION.pay,
+        currency: CURRENCY.PEN,
+        evidence: [],
+      ),
+      Operation(
+        id: "298ac65c-7021-4b9b-97c7-f3818185bf4c",
+        name: "Compra",
+        description: "Compra de Extractora en Sodimac",
+        cardId: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+        accountNumber: "****4455",
+        dateStr: "20/09/2022",
+        mount: 340.90,
+        icon: "cartFlatbed",
         operation: OPERATION.pay,
         currency: CURRENCY.PEN,
         evidence: [],

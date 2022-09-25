@@ -5,9 +5,9 @@ import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/confirm_dialog.dart';
 import 'package:eran_by_saving/utils/device.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,8 +15,8 @@ class SettingsPage extends StatelessWidget with BasePage {
   const SettingsPage({Key? key}) : super(key: key);
 
   Future<void> _launchUrl() async {
-    if (!await launchUrl(Uri.parse('https://jsiapo.dev'))) {
-      throw 'Could not launch https://jsiapo.dev';
+    if (!await launchUrl(Uri.parse('https://tkinter.jsiapo.dev/'))) {
+      throw 'Could not launch https://tkinter.jsiapo.dev/';
     }
   }
 
@@ -57,7 +57,7 @@ class SettingsPage extends StatelessWidget with BasePage {
                         visualDensity: VisualDensity.comfortable,
                         iconSize: responsive.wp(7),
                         onPressed: () {},
-                        icon: const FaIcon(FontAwesomeIcons.user),
+                        icon: getIconWidget(IconsAvailables.user),
                       ),
                     ),
                     errorWidget: (context, url, error) => CircleAvatar(
@@ -69,7 +69,7 @@ class SettingsPage extends StatelessWidget with BasePage {
                         visualDensity: VisualDensity.comfortable,
                         iconSize: responsive.wp(6),
                         onPressed: () {},
-                        icon: const FaIcon(FontAwesomeIcons.user),
+                        icon: getIconWidget(IconsAvailables.user),
                       ),
                     ),
                   ),
@@ -99,16 +99,18 @@ class SettingsPage extends StatelessWidget with BasePage {
                 },
                 title: const Text('Notificaciones'),
                 subtitle: const Text('1 notificación'),
-                leading: const FaIcon(FontAwesomeIcons.solidBell),
-                trailing: const FaIcon(FontAwesomeIcons.chevronRight),
+                leading: getIconWidget(IconsAvailables.solidBell),
+                trailing: getIconWidget(IconsAvailables.chevronRight),
               ),
               SizedBox(height: responsive.hp(1.3)),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  goTo(context, PAGES.devicePage.route);
+                },
                 title: const Text('Dispositivos'),
                 subtitle: const Text('2 dispositivos conectados'),
-                leading: const FaIcon(FontAwesomeIcons.mobileScreen),
-                trailing: const FaIcon(FontAwesomeIcons.chevronRight),
+                leading: getIconWidget(IconsAvailables.mobileScreen),
+                trailing: getIconWidget(IconsAvailables.chevronRight),
               ),
               SizedBox(height: responsive.hp(1.3)),
 
@@ -116,8 +118,8 @@ class SettingsPage extends StatelessWidget with BasePage {
                 onTap: () {},
                 title: const Text('Solicitudes'),
                 subtitle: const Text('Ninguna Pendiente'),
-                leading: const FaIcon(FontAwesomeIcons.shareNodes),
-                trailing: const FaIcon(FontAwesomeIcons.chevronRight),
+                leading: getIconWidget(IconsAvailables.shareNodes),
+                trailing: getIconWidget(IconsAvailables.chevronRight),
               ),
               SizedBox(height: responsive.hp(1.3)),
               ListTile(
@@ -126,8 +128,8 @@ class SettingsPage extends StatelessWidget with BasePage {
                 },
                 title: const Text('Apariencia'),
                 subtitle: Text(data.settings.isDark ? 'OSCURO' : 'CLARO'),
-                leading: const FaIcon(FontAwesomeIcons.palette),
-                trailing: const FaIcon(FontAwesomeIcons.chevronRight),
+                leading: getIconWidget(IconsAvailables.palette),
+                trailing: getIconWidget(IconsAvailables.chevronRight),
               ),
               SizedBox(height: responsive.hp(1.3)),
 
@@ -138,8 +140,8 @@ class SettingsPage extends StatelessWidget with BasePage {
                       onTap: _launchUrl,
                       title: const Text('Novedades'),
                       subtitle: Text('Versión v${snapshot.data ?? ""}'),
-                      leading: const FaIcon(FontAwesomeIcons.circleInfo),
-                      trailing: const FaIcon(FontAwesomeIcons.chevronRight),
+                      leading: getIconWidget(IconsAvailables.circleInfo),
+                      trailing: getIconWidget(IconsAvailables.chevronRight),
                     );
                   }),
 
@@ -167,7 +169,7 @@ class SettingsPage extends StatelessWidget with BasePage {
                     return ListTile(
                       onTap: () {},
                       title: const Text('Dispositivo'),
-                      leading: const FaIcon(FontAwesomeIcons.wrench),
+                      leading: getIconWidget(IconsAvailables.wrench),
                       trailing: Text(snapshot.data ?? ""),
                     );
                   }),
@@ -179,7 +181,7 @@ class SettingsPage extends StatelessWidget with BasePage {
                     return ListTile(
                       onTap: () {},
                       title: const Text('OS'),
-                      leading: const FaIcon(FontAwesomeIcons.wrench),
+                      leading: getIconWidget(IconsAvailables.wrench),
                       trailing: Text(snapshot.data ?? ""),
                     );
                   }),
@@ -190,7 +192,7 @@ class SettingsPage extends StatelessWidget with BasePage {
                     return ListTile(
                       onTap: () {},
                       title: const Text('ID'),
-                      leading: const FaIcon(FontAwesomeIcons.wrench),
+                      leading: getIconWidget(IconsAvailables.wrench),
                       trailing: Text(snapshot.data ?? ""),
                     );
                   }),
@@ -205,8 +207,8 @@ class SettingsPage extends StatelessWidget with BasePage {
                   }, title: "SESIÓN", message: "¿Seguro desea cerrar sesión?");
                 },
                 title: const Text('Cerrar Sesión'),
-                leading: const FaIcon(FontAwesomeIcons.arrowRightFromBracket),
-                trailing: const FaIcon(FontAwesomeIcons.chevronRight),
+                leading: getIconWidget(IconsAvailables.arrowRightFromBracket),
+                trailing: getIconWidget(IconsAvailables.chevronRight),
               ),
             ],
           ),

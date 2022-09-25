@@ -1,8 +1,8 @@
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/widgets/history/item_history_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class HistoryList extends StatefulWidget {
@@ -45,12 +45,12 @@ class _HistoryListState extends State<HistoryList> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children: [
                         Padding(
-                          padding: EdgeInsets.only(bottom: 18),
-                          child: FaIcon(FontAwesomeIcons.cloudMeatball),
+                          padding: const EdgeInsets.only(bottom: 18),
+                          child: getIconWidget(IconsAvailables.empty),
                         ),
-                        Text('No se encontraron operaciones')
+                        const Text('No se encontraron operaciones')
                       ],
                     ),
                   ),

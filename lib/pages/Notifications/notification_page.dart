@@ -1,7 +1,6 @@
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NotificationPage extends StatelessWidget with BasePage {
   const NotificationPage({Key? key}) : super(key: key);
@@ -12,11 +11,11 @@ class NotificationPage extends StatelessWidget with BasePage {
       appBar: getclearAppBar(context, actions: [
         IconButton(
             onPressed: () {},
-            icon: const FaIcon(FontAwesomeIcons.trashCan),
+            icon: getIconWidget(IconsAvailables.trashCan),
             tooltip: "LIMPIAR"),
         IconButton(
             onPressed: () {},
-            icon: const FaIcon(FontAwesomeIcons.solidBellSlash),
+            icon: getIconWidget(IconsAvailables.solidBellSlash),
             // icon: const FaIcon(FontAwesomeIcons.solidBell),
             tooltip: "SILENCIAR"),
       ]),
@@ -57,7 +56,7 @@ class ItemNotifation extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {},
-      leading: FaIcon(getIcon(icon)),
+      leading: getIconWidget(IconsAvailables.values.byName(icon)),
       title: Text(title),
       subtitle: Text(subtitle),
       isThreeLine: true,

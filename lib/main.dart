@@ -10,7 +10,7 @@ import 'package:eran_by_saving/hive_config.dart' show initHive;
 import 'package:eran_by_saving/provider_config.dart' show providers;
 
 import 'package:eran_by_saving/route/routes.dart'
-    show appRoutes, routeByPlatform;
+    show appRoutes, routeByPlatform, transitionRoutes;
 import 'package:eran_by_saving/provider/home_provider.dart';
 
 Future<void> main() async {
@@ -45,6 +45,12 @@ class MaterialWithTheme extends StatelessWidget {
         title: 'Earn By Saving',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          pageTransitionsTheme: const PageTransitionsTheme(
+            builders: <TargetPlatform, PageTransitionsBuilder>{
+              TargetPlatform.android:
+                  FadeUpwardsPageTransitionsBuilder(), // Apply this to every platforms you need.
+            },
+          ),
           useMaterial3: true,
           colorSchemeSeed: const Color.fromARGB(255, 232, 251, 30),
           scaffoldBackgroundColor:
@@ -55,7 +61,8 @@ class MaterialWithTheme extends StatelessWidget {
           //     .platformBrightness,
         ),
         initialRoute: routeByPlatform(PAGES.redirectPage.route),
-        routes: appRoutes,
+        // routes: appRoutes,
+        onGenerateRoute: transitionRoutes,
       ),
     );
   }

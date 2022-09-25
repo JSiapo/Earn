@@ -1,13 +1,13 @@
 import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/constants/page_constant.dart';
-import 'package:eran_by_saving/ext/string_ext.dart';
 import 'package:eran_by_saving/model/operation_model.dart';
 import 'package:eran_by_saving/provider/loading_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/confirm_dialog.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
+import 'package:eran_by_saving/utils/show_bottom_alert.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +32,12 @@ class HistoryItem extends StatelessWidget {
               confirmDialog(context, () async {
                 context.read<LoadingProvider>().setLoading(true);
                 Navigator.pop(context);
-                await Future.delayed(const Duration(milliseconds: 8500));
+                await Future.delayed(const Duration(milliseconds: 3500));
+                showSnackBar(
+                    context,
+                    operation.operation == OPERATION.pay
+                        ? "Se eliminó correctamente el pago a ${operation.name}"
+                        : "Se eliminó correctamente la transferencia");
                 context.read<LoadingProvider>().setLoading(false);
               }, () async {
                 Navigator.pop(context);
@@ -52,9 +57,9 @@ class HistoryItem extends StatelessWidget {
           context.read<OperationProvider>().setOperation(operation);
           goTo(context, PAGES.receiptPage.route);
         },
-        leading: FaIcon(operation.isOffline
-            ? "cloudArrowUp".toIcon
-            : operation.icon.toIcon),
+        leading: operation.isOffline
+            ? getIconWidget(IconsAvailables.values.byName("cloudArrowUp"))
+            : getIconWidget(IconsAvailables.values.byName(operation.icon)),
         title: Text(operation.name),
         subtitle: Text(
           operation.dateStr,

@@ -11,6 +11,7 @@ enum PAGES {
   receivePage,
   transferPage,
   payPage,
+  devicePage,
 }
 
 extension PagesExt on PAGES {

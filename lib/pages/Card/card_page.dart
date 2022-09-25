@@ -1,19 +1,16 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eran_by_saving/constants/operations_constants.dart';
-import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
-import 'package:eran_by_saving/route/routes.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 // import 'package:eran_by_saving/utils/to_chart_data.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bank.dart';
 // import 'package:eran_by_saving/widgets/chart/pie_chart.dart';
 // import 'package:eran_by_saving/widgets/history/list_history_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
@@ -45,7 +42,7 @@ class CardPage extends StatelessWidget with BasePage {
                           );
                         });
                   },
-                  icon: const FaIcon(FontAwesomeIcons.paperPlane),
+                  icon: getIconWidget(IconsAvailables.paperPlane),
                   tooltip: "COMPARTIR")
             ]),
             floatingActionButton: SpeedDial(
@@ -184,7 +181,7 @@ class CardPage extends StatelessWidget with BasePage {
                             visualDensity: VisualDensity.comfortable,
                             iconSize: responsive.wp(6),
                             onPressed: () {},
-                            icon: const FaIcon(FontAwesomeIcons.user),
+                            icon: getIconWidget(IconsAvailables.user),
                           ),
                         ),
                         errorWidget: (context, url, error) => CircleAvatar(
@@ -196,7 +193,7 @@ class CardPage extends StatelessWidget with BasePage {
                             visualDensity: VisualDensity.comfortable,
                             iconSize: responsive.wp(6),
                             onPressed: () {},
-                            icon: const FaIcon(FontAwesomeIcons.user),
+                            icon: getIconWidget(IconsAvailables.user),
                           ),
                         ),
                       ),
@@ -261,8 +258,8 @@ class CardPage extends StatelessWidget with BasePage {
                                               VisualDensity.comfortable,
                                           iconSize: responsive.wp(6),
                                           onPressed: () {},
-                                          icon: const FaIcon(
-                                              FontAwesomeIcons.user),
+                                          icon: getIconWidget(
+                                              IconsAvailables.user),
                                         ),
                                       ),
                                       errorWidget: (context, url, error) =>
@@ -276,8 +273,8 @@ class CardPage extends StatelessWidget with BasePage {
                                               VisualDensity.comfortable,
                                           iconSize: responsive.wp(6),
                                           onPressed: () {},
-                                          icon: const FaIcon(
-                                              FontAwesomeIcons.user),
+                                          icon: getIconWidget(
+                                              IconsAvailables.user),
                                         ),
                                       ),
                                     ),

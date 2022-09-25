@@ -1,10 +1,10 @@
 import 'package:eran_by_saving/constants/card_constant.dart';
 import 'package:eran_by_saving/model/card_model.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bbva_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bcp_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_interbank_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'card_scotiabank_widget.dart';
 
 class CardBankWithData extends StatelessWidget {
@@ -98,7 +98,7 @@ class CardBank extends StatelessWidget {
                       style: const TextStyle(color: Colors.white, fontSize: 14),
                       textScaleFactor: 1,
                     ),
-                    const FaIcon(FontAwesomeIcons.ccVisa, color: Colors.white),
+                    getIconWidget(IconsAvailables.visa, color: Colors.white),
                   ],
                 ),
                 flex: 1,

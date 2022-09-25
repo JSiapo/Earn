@@ -23,8 +23,8 @@ class DecryptPage extends StatelessWidget with BasePage {
                   child: Container(
                     margin: EdgeInsets.all(responsive.wp(4.0)),
                     child: Lottie.asset(
-                      'assets/animations/cpu.json',
-                      // 'assets/animations/crypto.json',
+                      'assets/animations/box-unloading.json',
+                      // 'assets/animations/ufo.json',
                       // fit: BoxFit.fill,
                     ),
                   ),

@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:eran_by_saving/utils/show_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
 
@@ -27,9 +27,11 @@ class ReceiptPage extends StatelessWidget with BasePage {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Center(
-                  child: FaIcon(currentOperation.isOffline
-                      ? "cloudArrowUp".toIcon
-                      : currentOperation.icon.toIcon),
+                  child: currentOperation.isOffline
+                      ? getIconWidget(
+                          IconsAvailables.values.byName("cloudArrowUp"))
+                      : getIconWidget(
+                          IconsAvailables.values.byName(currentOperation.icon)),
                 ),
                 const SizedBox(height: 15),
                 Text(
@@ -46,7 +48,7 @@ class ReceiptPage extends StatelessWidget with BasePage {
                   child: Text(
                     currentOperation.operation == OPERATION.pay
                         ? "Pago de servicio"
-                        : "Transferencia bancaria",
+                        : "Transferencia",
                     style: const TextStyle(
                       fontStyle: FontStyle.normal,
                     ),
@@ -95,7 +97,7 @@ class ReceiptPage extends StatelessWidget with BasePage {
                           trailing: Text(
                             currentOperation.operation == OPERATION.pay
                                 ? "Pago de servicio"
-                                : "Transferencia bancaria",
+                                : "Transferencia",
                           ),
                         ),
                         ListTile(
