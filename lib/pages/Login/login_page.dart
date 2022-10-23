@@ -1,11 +1,16 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
+import 'package:eran_by_saving/provider/user_provider.dart';
+import 'package:eran_by_saving/provider_config.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
+import 'package:eran_by_saving/utils/google_login.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
+import 'package:eran_by_saving/utils/show_bottom_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget with BasePage {
@@ -48,38 +53,56 @@ class LoginPage extends StatelessWidget with BasePage {
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: MaterialButton(
-                        onPressed: () {
-                          goTo(context, PAGES.homePage.route);
-                        },
-                        // color: Theme.of(context).backgroundColor,
-                        color:
-                            data.settings.isDark ? Colors.white : Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 24.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              getIconWidget(
-                                IconsAvailables.google,
-                                color: data.settings.isDark
-                                    ? Colors.black
-                                    : Colors.white,
-                              ),
-                              const SizedBox(width: 8),
-                              Text('Inicia sesión con Google',
-                                  style: TextStyle(
+                      child:
+                          Consumer<UserProvider>(builder: (context, user, _) {
+                        return MaterialButton(
+                          onPressed: () async {
+                            try {
+                              await handleSignIn(googleSignIn, user);
+                              var userLogged =
+                                  await context.read<UserProvider>().getUser();
+                              if (userLogged != null) {
+                                await loadOperations(context);
+                                goTo(context, PAGES.homePage.route);
+                              }
+                            } catch (e) {
+                              showSnackBar(context, e.toString());
+                              print(e);
+                            }
+                          },
+                          // color: Theme.of(context).backgroundColor,
+                          color: data.settings.isDark
+                              ? Colors.white
+                              : Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 24.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                getIconWidget(
+                                  IconsAvailables.google,
+                                  color: data.settings.isDark
+                                      ? Colors.black
+                                      : Colors.white,
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  'Continuar con Google',
+                                  style: GoogleFonts.roboto(
                                     color: data.settings.isDark
                                         ? Colors.black
                                         : Colors.white,
-                                  )),
-                            ],
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ),
+                        );
+                      }),
                     ),
                   )
                 ]),

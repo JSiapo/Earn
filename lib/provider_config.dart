@@ -1,6 +1,8 @@
+import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/loading_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
+import 'package:eran_by_saving/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -13,16 +15,29 @@ List<SingleChildWidget> providers() {
     ChangeNotifierProvider(create: (_) => CardProvider()),
     ChangeNotifierProvider(create: (_) => OperationProvider()),
     ChangeNotifierProvider(create: (_) => LoadingProvider()),
+    ChangeNotifierProvider(create: (_) => UserProvider()),
   ].toList();
 }
 
-Future<void> start(BuildContext context) async {
-  await Future.wait([
-    context.read<HomeProvider>().loadSetting(),
-    context.read<CardProvider>().getAll(),
-    context.read<OperationProvider>().getAll(),
-  ]);
+Future<PAGES> start(BuildContext context) async {
+  await context.read<HomeProvider>().loadSetting();
+  await context.read<UserProvider>().loadUser();
+  var user = await context.read<UserProvider>().getUser();
+  if (user != null) {
+    await loadOperations(context);
+    return PAGES.homePage;
+  }
+
+  return PAGES.loginPage;
+
   // await context.read<HomeProvider>().loadSetting();
   // await context.read<CardProvider>().getAll();
   // await context.read<OperationProvider>().getAll();
+}
+
+Future<void> loadOperations(BuildContext context) async {
+  await Future.wait([
+    context.read<CardProvider>().getAll(),
+    context.read<OperationProvider>().getAll(),
+  ]);
 }

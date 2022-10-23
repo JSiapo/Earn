@@ -1,6 +1,6 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/firebase_config.dart';
-import 'package:eran_by_saving/start_data.dart';
+// import 'package:eran_by_saving/start_data.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +10,7 @@ import 'package:eran_by_saving/hive_config.dart' show initHive;
 import 'package:eran_by_saving/provider_config.dart' show providers;
 
 import 'package:eran_by_saving/route/routes.dart'
-    show appRoutes, routeByPlatform, transitionRoutes;
+    show routeByPlatform, transitionRoutes;
 import 'package:eran_by_saving/provider/home_provider.dart';
 
 Future<void> main() async {

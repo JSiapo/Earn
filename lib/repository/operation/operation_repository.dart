@@ -4,6 +4,6 @@ abstract class OperationRepository {
   Future<List<Operation>> getAllOperation();
   Future<String> register();
   Future<String> update();
-  Future<String> delete();
+  Future<String> delete(Operation operation);
   Future<void> upload();
 }

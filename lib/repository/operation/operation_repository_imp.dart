@@ -4,9 +4,9 @@ import 'package:eran_by_saving/repository/operation/operation_repository.dart';
 
 class OperationRepositoryImp extends OperationRepository {
   @override
-  Future<String> delete() {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<String> delete(Operation operation) async {
+    await Future.delayed(const Duration(milliseconds: 4500));
+    return "Eliminado correctamente";
   }
 
   @override
@@ -25,8 +25,8 @@ class OperationRepositoryImp extends OperationRepository {
         operation: OPERATION.pay,
         currency: CURRENCY.PEN,
         evidence: [
-          "https://noticiasresponsables.com/wp-content/uploads/2019/07/Hidrandina.jpg",
-          "https://noticiasresponsables.com/wp-content/uploads/2020/07/Hidrandina-1299x1536.jpg",
+          // "https://noticiasresponsables.com/wp-content/uploads/2019/07/Hidrandina.jpg",
+          // "https://noticiasresponsables.com/wp-content/uploads/2020/07/Hidrandina-1299x1536.jpg",
         ],
       ),
       Operation(

@@ -1,11 +1,11 @@
+import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/provider_config.dart';
 import 'package:flutter/material.dart';
 
-Future<bool> startData(BuildContext context) async {
+Future<PAGES> startData(BuildContext context) async {
   try {
-    await start(context);
-    return true;
+    return start(context);
   } catch (e) {
-    return false;
+    return PAGES.loginPage;
   }
 }

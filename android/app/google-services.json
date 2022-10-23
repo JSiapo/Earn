@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "40656759368",
+    "project_id": "earn-saving-money",
+    "storage_bucket": "earn-saving-money.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40656759368:android:fd0e244fd925bb154d067d",
+        "android_client_info": {
+          "package_name": "dev.jsiapo.eran_by_saving"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40656759368-agbsnt885st1bmda0eflp6klrr9g5v6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.jsiapo.eran_by_saving",
+            "certificate_hash": "33c92a24452469de35881bcbfc2e62c5f839379a"
+          }
+        },
+        {
+          "client_id": "40656759368-0t8p9fs1g6gukgfaud3auo5863md88p8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWoZ5eRyGpI6YKMLLii_tndexWhlsfDYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40656759368-0t8p9fs1g6gukgfaud3auo5863md88p8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

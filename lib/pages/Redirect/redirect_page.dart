@@ -13,12 +13,10 @@ class RedirectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     startData(context).then((success) {
-      if (success) {
-        context
-            .read<HomeProvider>()
-            .setTheme(context.read<HomeProvider>().settings.isDark);
-        goTo(context, PAGES.homePage.route, replace: true);
-      }
+      context
+          .read<HomeProvider>()
+          .setTheme(context.read<HomeProvider>().settings.isDark);
+      goTo(context, success.route, replace: true);
     });
     return const DecryptPage();
   }

@@ -14,7 +14,7 @@ class HomeProvider extends ChangeNotifier {
 
   Future<void> saveSettings() async {
     const settingData = SettingsData();
-    settingData.save(settings);
+    await settingData.save(settings);
   }
 
   Future<void> toogleTheme() async {
@@ -31,6 +31,7 @@ class HomeProvider extends ChangeNotifier {
 
   Future<void> setSetting(Settings settings) async {
     this.settings = settings;
+    await saveSettings();
     notifyListeners();
   }
 

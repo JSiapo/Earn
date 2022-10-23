@@ -2,10 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
+import 'package:eran_by_saving/provider/user_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/confirm_dialog.dart';
 import 'package:eran_by_saving/utils/device.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
+import 'package:eran_by_saving/utils/google_login.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,8 +38,7 @@ class SettingsPage extends StatelessWidget with BasePage {
                   tag: 'profile',
                   child: CachedNetworkImage(
                     fit: BoxFit.scaleDown,
-                    imageUrl:
-                        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    imageUrl: context.read<UserProvider>().user?.image ?? "",
                     imageBuilder: (context, imageProvider) => CircleAvatar(
                       // radius: responsive.wp(7),
                       maxRadius: responsive.isLandscape
@@ -201,6 +202,8 @@ class SettingsPage extends StatelessWidget with BasePage {
               ListTile(
                 onTap: () {
                   confirmDialog(context, () async {
+                    await handleLogout(
+                        googleSignIn, context.read<UserProvider>());
                     goTo(context, PAGES.loginPage.route, replace: true);
                   }, () async {
                     Navigator.pop(context);

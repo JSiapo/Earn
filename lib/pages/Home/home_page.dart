@@ -6,6 +6,7 @@ import 'package:eran_by_saving/pages/Loading/loading_page.dart';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/loading_provider.dart';
+import 'package:eran_by_saving/provider/user_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
@@ -55,41 +56,6 @@ class _HomePageState extends State<HomePage> with HomePageAbstract, BasePage {
                     const HomePageWidget(),
                     if (context.watch<LoadingProvider>().isLoading)
                       const LoadingPage(),
-                    // Positioned(
-                    //   child: AnimatedOpacity(
-                    //     duration: const Duration(seconds: 1),
-                    //     opacity: 1,
-                    //     child: GestureDetector(
-                    //       onTap: () {
-                    //         print("sincronizar");
-                    //       },
-                    //       child: Container(
-                    //         padding: const EdgeInsets.symmetric(vertical: 13),
-                    //         decoration: const BoxDecoration(
-                    //             color: Colors.red,
-                    //             borderRadius: BorderRadius.only(
-                    //               topRight: Radius.circular(10),
-                    //               topLeft: Radius.circular(10),
-                    //             )),
-                    //         width: responsive.wp(100),
-                    //         child: Row(
-                    //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //           children: [
-                    //             const FaIcon(FontAwesomeIcons.cloudArrowUp,
-                    //                 color: Colors.white),
-                    //             Text('Sincroniza tus datos tocando aquí',
-                    //                 overflow: TextOverflow.ellipsis,
-                    //                 style: GoogleFonts.lato(
-                    //                   color: Colors.white,
-                    //                   fontWeight: FontWeight.bold,
-                    //                 )),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    //   bottom: 0,
-                    // ),
                   ],
                 );
               },
@@ -136,7 +102,7 @@ class HomePageWidget extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'José Siapo',
+                          context.read<UserProvider>().user?.name ?? "",
                           softWrap: true,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.roboto(
@@ -153,7 +119,7 @@ class HomePageWidget extends StatelessWidget {
                         tag: 'profile',
                         child: CachedNetworkImage(
                           imageUrl:
-                              "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                              context.read<UserProvider>().user?.image ?? "",
                           imageBuilder: (context, imageProvider) => Badge(
                             elevation: 1,
                             showBadge: true,
