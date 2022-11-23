@@ -11,7 +11,7 @@ class CardRepositoryImp extends CardRepository {
     // return [];
     return [
       CardModel(
-          amount: 2002,
+          amount: 1002,
           card: CARD.BCP,
           name: "BCP - Cuenta de ahorro en soles",
           nro: "123-xxx-123",
@@ -32,13 +32,13 @@ class CardRepositoryImp extends CardRepository {
               ..fecha = "27/08/2022",
           ]),
       CardModel(
-          amount: 100.0,
-          card: CARD.BCP,
-          name: "BCP - Cuenta de ahorro en dólares",
+          amount: 600.0,
+          card: CARD.CMR,
+          name: "CMR - Cuenta en soles",
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "34d1b99a-fb8b-46f5-a536-fc5d58965e10",
-          currency: CURRENCY.USD.toSimbol,
+          currency: CURRENCY.PEN.toSimbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

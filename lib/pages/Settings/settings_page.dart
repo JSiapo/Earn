@@ -17,8 +17,8 @@ class SettingsPage extends StatelessWidget with BasePage {
   const SettingsPage({Key? key}) : super(key: key);
 
   Future<void> _launchUrl() async {
-    if (!await launchUrl(Uri.parse('https://tkinter.jsiapo.dev/'))) {
-      throw 'Could not launch https://tkinter.jsiapo.dev/';
+    if (!await launchUrl(Uri.parse('https://jsiapo.dev/'))) {
+      throw 'Could not launch https://jsiapo.dev/';
     }
   }
 

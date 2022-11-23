@@ -3,6 +3,7 @@ import 'package:eran_by_saving/model/card_model.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bbva_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bcp_widget.dart';
+import 'package:eran_by_saving/widgets/cardBank/card_cmr_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_interbank_widget.dart';
 import 'package:flutter/material.dart';
 import 'card_scotiabank_widget.dart';
@@ -25,6 +26,9 @@ class CardBankWithData extends StatelessWidget {
     }
     if (card!.card == CARD.SCOTIABANK) {
       return CardBank(card: const CardCurvoScotiaBank(), data: card!);
+    }
+    if (card!.card == CARD.CMR) {
+      return CardBank(card: const CardCurvoCMRDebito(), data: card!);
     }
     return CardBank(card: const CardCurvoInterBank(), data: card!);
   }

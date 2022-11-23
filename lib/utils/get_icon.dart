@@ -62,6 +62,7 @@ enum IconsAvailables {
   school,
   other,
   google,
+  pen,
 }
 
 Widget getIconWidget(IconsAvailables icon, {Color? color}) {
@@ -422,6 +423,13 @@ Widget getIconWidget(IconsAvailables icon, {Color? color}) {
   if (icon == IconsAvailables.other) {
     return FaIcon(
       FontAwesomeIcons.sackDollar,
+      color: color,
+    );
+  }
+
+  if (icon == IconsAvailables.pen) {
+    return FaIcon(
+      FontAwesomeIcons.pencil,
       color: color,
     );
   }
