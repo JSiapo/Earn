@@ -8,7 +8,6 @@ class CardRepositoryImp extends CardRepository {
   @override
   Future<List<CardModel>> getAllCards() async {
     await Future.delayed(const Duration(milliseconds: 3500));
-    // return [];
     return [
       CardModel(
           amount: 1002,

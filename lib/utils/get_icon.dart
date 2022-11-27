@@ -63,6 +63,10 @@ enum IconsAvailables {
   other,
   google,
   pen,
+  arrowsLeftRight,
+  arrowsLeft,
+  camera,
+  gallery,
 }
 
 Widget getIconWidget(IconsAvailables icon, {Color? color}) {
@@ -430,6 +434,24 @@ Widget getIconWidget(IconsAvailables icon, {Color? color}) {
   if (icon == IconsAvailables.pen) {
     return FaIcon(
       FontAwesomeIcons.pencil,
+      color: color,
+    );
+  }
+  if (icon == IconsAvailables.arrowsLeft) {
+    return FaIcon(
+      FontAwesomeIcons.arrowLeft,
+      color: color,
+    );
+  }
+  if (icon == IconsAvailables.camera) {
+    return FaIcon(
+      FontAwesomeIcons.cameraRetro,
+      color: color,
+    );
+  }
+  if (icon == IconsAvailables.gallery) {
+    return FaIcon(
+      FontAwesomeIcons.image,
       color: color,
     );
   }
