@@ -81,8 +81,8 @@ flutter_icons:
 flutter_native_splash:
   color: '#C8C8C8'
   color_dark: '#5E5E5E'
-  image: assets/images/icons/moneda.png
-  image_dark: assets/images/icons/moneda.png
+  image: assets/images/icons/icon.png
+  image_dark: assets/images/icons/icon.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

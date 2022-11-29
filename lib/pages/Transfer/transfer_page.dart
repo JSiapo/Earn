@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
@@ -59,26 +61,32 @@ class TransferPage extends StatelessWidget with BasePage {
                 floating: false,
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Container(
-                    color: Colors.black38,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-                    // height: 80,
-                    width: responsive.wp(100),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          'TRANSFERIR',
-                          style: GoogleFonts.lato(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          '${data.card?.name}',
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.lato(fontSize: 10),
-                        ),
-                      ],
+                  title: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 2.0,
+                      sigmaY: 2.0,
+                    ),
+                    child: Container(
+                      color: Colors.black38,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 8),
+                      // height: 80,
+                      width: responsive.wp(100),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'TRANSFERIR',
+                            style: GoogleFonts.lato(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${data.card?.name}',
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.lato(fontSize: 10),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   titlePadding: const EdgeInsets.all(0),
