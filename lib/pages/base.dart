@@ -1,3 +1,5 @@
+import 'package:eran_by_saving/route/routes.dart';
+import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +16,12 @@ class BasePage {
             )
           : null,
       toolbarHeight: toolbarHeight,
+      leading: IconButton(
+          onPressed: () {
+            goBack(context);
+          },
+          visualDensity: VisualDensity.comfortable,
+          icon: getIconWidget(IconsAvailables.chevronLeft, size: 20)),
       elevation: 0,
       actions: actions,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

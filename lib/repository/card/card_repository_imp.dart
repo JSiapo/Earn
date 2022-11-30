@@ -16,7 +16,7 @@ class CardRepositoryImp extends CardRepository {
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
-          currency: CURRENCY.PEN.toSimbol,
+          currency: CURRENCY.PEN.toSymbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -37,7 +37,7 @@ class CardRepositoryImp extends CardRepository {
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "34d1b99a-fb8b-46f5-a536-fc5d58965e10",
-          currency: CURRENCY.PEN.toSimbol,
+          currency: CURRENCY.PEN.toSymbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -51,7 +51,7 @@ class CardRepositoryImp extends CardRepository {
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "3a9bb15e-57a0-4df4-985e-63902c5eecf1",
-          currency: CURRENCY.PEN.toSimbol,
+          currency: CURRENCY.PEN.toSymbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -65,7 +65,7 @@ class CardRepositoryImp extends CardRepository {
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "4859b7f2-3c67-4dd3-b477-3f760c7972a9",
-          currency: CURRENCY.PEN.toSimbol,
+          currency: CURRENCY.PEN.toSymbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -79,7 +79,7 @@ class CardRepositoryImp extends CardRepository {
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "4859b7f2-3c67-4dd3-b477-3f760c7972a0",
-          currency: CURRENCY.USD.toSimbol,
+          currency: CURRENCY.USD.toSymbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -93,7 +93,7 @@ class CardRepositoryImp extends CardRepository {
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "41db3056-078e-4352-9484-a285f4a1ed6e",
-          currency: CURRENCY.PEN.toSimbol,
+          currency: CURRENCY.PEN.toSymbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -107,7 +107,7 @@ class CardRepositoryImp extends CardRepository {
           nro: "123-xxx-123",
           nroCCI: "123-xxx-123",
           id: "e1077d05-940d-40e2-8c6f-eba6a33995d2",
-          currency: CURRENCY.USD.toSimbol,
+          currency: CURRENCY.USD.toSymbol,
           owner: CardUserModel(
               image:
                   "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

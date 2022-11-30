@@ -28,9 +28,9 @@ List<Widget> actions() {
     ActionWidget(
         route: PAGES.receivePage.route,
         icon: getIconWidget(IconsAvailables.coins),
-        text: "Recibir"),
+        text: "Ingreso"),
     ActionWidget(
-        route: PAGES.settingsPage.route,
+        route: PAGES.moreOptionsPage.route,
         icon: getIconWidget(IconsAvailables.ellipsis),
         text: "Más"),
   ];

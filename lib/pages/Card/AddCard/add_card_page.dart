@@ -16,7 +16,7 @@ class AddCardPage extends StatelessWidget with BasePage {
               await scanQr(context);
             },
             child: getIconWidget(IconsAvailables.qrcode)),
-        appBar: getclearAppBar(context),
+        appBar: getclearAppBar(context, title: "REGISTRAR"),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -57,7 +57,7 @@ class ReceiptPage extends StatelessWidget with BasePage {
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  "${currentOperation.currency.toSimbol} ${currentOperation.mount.toStringAsFixed(2)}",
+                  "${currentOperation.currency.toSymbol} ${currentOperation.mount.toStringAsFixed(2)}",
                   style: TextStyle(
                     color:
                         currentOperation.isExpense ? Colors.red : Colors.green,
@@ -149,6 +149,7 @@ class EvidenceImage extends StatelessWidget {
             context,
             PhotoView(
               minScale: PhotoViewComputedScale.contained * 0.8,
+              maxScale: PhotoViewComputedScale.contained * 1.8,
               imageProvider: CachedNetworkImageProvider(
                 image,
               ),

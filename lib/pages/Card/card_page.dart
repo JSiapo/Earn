@@ -26,7 +26,7 @@ class CardPage extends StatelessWidget with BasePage {
         return Consumer<OperationProvider>(
             builder: (context, dataOperation, _) {
           return Scaffold(
-            appBar: getclearAppBar(context, actions: [
+            appBar: getclearAppBar(context, title: "CUENTA", actions: [
               IconButton(
                   onPressed: () {
                     showModalBottomSheet(
@@ -53,16 +53,16 @@ class CardPage extends StatelessWidget with BasePage {
                   child: const Icon(Icons.delete),
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.red,
-                  label: 'Eliminar',
+                  label: 'Deshabilitar',
                   onPressed: () async {},
                 ),
-                SpeedDialChild(
-                  child: const Icon(Icons.edit),
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.yellow,
-                  label: 'Editar',
-                  onPressed: () async {},
-                ),
+                // SpeedDialChild(
+                //   child: const Icon(Icons.edit),
+                //   foregroundColor: Colors.black,
+                //   backgroundColor: Colors.yellow,
+                //   label: 'Editar',
+                //   onPressed: () async {},
+                // ),
                 SpeedDialChild(
                   child: const Icon(Icons.add),
                   foregroundColor: Colors.black,

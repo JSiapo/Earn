@@ -58,6 +58,7 @@ dependencies:
   url_launcher: ^6.1.5 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   page_transition: ^2.0.9 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   flutter_svg: ^1.1.5 #* ANDROID IOS LINUX MACOS WEB WINDOWS
+  image_picker: ^0.8.6 #* ANDROID IOS WEB (!WINDOWS !LINUX !MACOS)
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -81,8 +82,8 @@ flutter_icons:
 flutter_native_splash:
   color: '#C8C8C8'
   color_dark: '#5E5E5E'
-  image: assets/images/icons/icon.png
-  image_dark: assets/images/icons/icon.png
+  image: assets/images/icons/splash.png
+  image_dark: assets/images/icons/splash.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

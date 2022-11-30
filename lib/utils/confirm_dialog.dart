@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void confirmDialog(BuildContext context, Function yes, Function no,
     {String title = "Mensaje", String message = ""}) {
   var alert = AlertDialog(
-    title: Text(title),
+    title: Center(child: Text(title)),
     content: Text(message),
     actions: [
       MaterialButton(

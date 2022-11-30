@@ -6,6 +6,7 @@ import 'package:eran_by_saving/pages/Card/card_page.dart';
 import 'package:eran_by_saving/pages/Decrypt/descpryt_page.dart';
 import 'package:eran_by_saving/pages/Devices/device_page.dart';
 import 'package:eran_by_saving/pages/Login/login_page.dart';
+import 'package:eran_by_saving/pages/MoreOptions/more_page.dart';
 import 'package:eran_by_saving/pages/Notifications/notification_page.dart';
 import 'package:eran_by_saving/pages/PayService/pay_service_page.dart';
 import 'package:eran_by_saving/pages/Receipt/receipt_page.dart';
@@ -133,6 +134,10 @@ Route<dynamic>? transitionRoutes(RouteSettings settings) {
     return routeTransition(settings, const DevicePage());
   if (settings.name == '/device_android')
     return routeTransition(settings, const DevicePage());
+  if (settings.name == '/moreOptions_ios')
+    return routeTransition(settings, const MoreOptionsPage());
+  if (settings.name == '/moreOptions_android')
+    return routeTransition(settings, const MoreOptionsPage());
   return null;
 }
 

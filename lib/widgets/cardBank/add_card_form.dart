@@ -147,14 +147,14 @@ class _FormAddCardState extends State<FormAddCard> {
                                   value: CURRENCY.PEN,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text(CURRENCY.PEN.toSimbol),
+                                    child: Text(CURRENCY.PEN.toSymbol),
                                   ),
                                 ),
                                 DropdownMenuItem(
                                   value: CURRENCY.USD,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text(CURRENCY.USD.toSimbol),
+                                    child: Text(CURRENCY.USD.toSymbol),
                                   ),
                                 ),
                               ],

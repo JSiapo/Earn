@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
+import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/getCardDesing.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
@@ -45,15 +46,12 @@ class ReceivePage extends StatelessWidget with BasePage {
             physics: const BouncingScrollPhysics(),
             slivers: [
               SliverAppBar(
-                leading: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
+                leading: IconButton(
+                  onPressed: () {
+                    goBack(context);
                   },
-                  child: Container(
-                    padding: const EdgeInsets.all(18.0),
-                    child: getIconWidget(IconsAvailables.arrowsLeft,
-                        color: Colors.white),
-                  ),
+                  icon: getIconWidget(IconsAvailables.chevronLeft,
+                      size: 20, color: Colors.white),
                 ),
                 backgroundColor: Colors.grey[850],
                 expandedHeight: 200,
@@ -66,7 +64,7 @@ class ReceivePage extends StatelessWidget with BasePage {
                       sigmaY: 2.0,
                     ),
                     child: Container(
-                      color: Colors.black38,
+                      color: Colors.black12,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 30, vertical: 8),
                       // height: 80,
@@ -103,10 +101,44 @@ class ReceivePage extends StatelessWidget with BasePage {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Text(
-                    '',
-                    style: GoogleFonts.lato(fontSize: 18),
+                    'Aqui se registran los ingresos que se reciben, ya sea sueldo, intereses, servicios realizados, se puede adjuntar hasta 5 imágenes como evidencia de la operación, ya sea foto o captura de pantalla de recibos, boletas o facturas',
+                    style: GoogleFonts.lato(
+                        fontSize: 13, fontStyle: FontStyle.italic),
                   ),
                 ),
+                // const Divider(),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Text(
+                    'Se envían 0 imágenes',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.lato(fontSize: 13),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(20),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      FocusScopeNode currentFocus = FocusScope.of(context);
+                      if (!currentFocus.hasPrimaryFocus) {
+                        currentFocus.unfocus();
+                      }
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: responsive.hp(2),
+                      ),
+                      child: Text(
+                        'Registrar',
+                        style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: responsive.hp(15.3)),
               ])),
             ],
           ),

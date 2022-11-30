@@ -68,7 +68,7 @@ class HistoryItem extends StatelessWidget {
           ),
         ),
         trailing: Text(
-          "${operation.currency.toSimbol} ${operation.mount.toStringAsFixed(2)}",
+          "${operation.currency.toSymbol} ${operation.mount.toStringAsFixed(2)}",
           style: TextStyle(
             color: operation.isExpense ? Colors.red : Colors.green,
             fontWeight: FontWeight.bold,

@@ -25,8 +25,8 @@ class OperationRepositoryImp extends OperationRepository {
         operation: OPERATION.pay,
         currency: CURRENCY.PEN,
         evidence: [
-          // "https://noticiasresponsables.com/wp-content/uploads/2019/07/Hidrandina.jpg",
-          // "https://noticiasresponsables.com/wp-content/uploads/2020/07/Hidrandina-1299x1536.jpg",
+          "https://noticiasresponsables.com/wp-content/uploads/2019/07/Hidrandina.jpg",
+          "https://noticiasresponsables.com/wp-content/uploads/2020/07/Hidrandina-1299x1536.jpg",
         ],
       ),
       Operation(
