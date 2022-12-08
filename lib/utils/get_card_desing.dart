@@ -1,6 +1,7 @@
 import 'package:eran_by_saving/constants/card_constant.dart';
 import 'package:eran_by_saving/model/card_model.dart';
-import 'package:eran_by_saving/widgets/cardBank/card_bbva_widget.dart';
+import 'package:eran_by_saving/widgets/cardBank/card_agora_widget.dart';
+import 'package:eran_by_saving/widgets/cardBank/card_bbva_debit_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bcp_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_cmr_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_interbank_widget.dart';
@@ -13,7 +14,7 @@ Widget getCardDesign(CardModel? card) {
     return const CardCurvoBCPCredimas();
   }
   if (card.card == CARD.BBVA) {
-    return const CardCurvoBBVACompras();
+    return const CardCurvoBBVADebit();
   }
   if (card.card == CARD.INTERBANK) {
     return const CardCurvoInterBank();
@@ -23,6 +24,9 @@ Widget getCardDesign(CardModel? card) {
   }
   if (card.card == CARD.CMR) {
     return const CardCurvoCMRDebito();
+  }
+  if (card.card == CARD.AGORA) {
+    return const CardAgora();
   }
   return const CardCurvoInterBank();
 }

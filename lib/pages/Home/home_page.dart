@@ -208,7 +208,46 @@ class HomePageWidget extends StatelessWidget {
                     iconSize: responsive.wp(5),
                     padding: const EdgeInsets.all(3),
                     onPressed: () {
-                      goTo(context, PAGES.addcardPage.route);
+                      showModalBottomSheet(
+                          backgroundColor:
+                              context.read<HomeProvider>().settings.isDark
+                                  ? null
+                                  : Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          enableDrag: true,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SizedBox(
+                              height: responsive.hp(40),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Text('Elige tu banco',
+                                            style: GoogleFonts.lato(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold)),
+                                      ),
+                                      const Divider(),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: responsive.hp(30),
+                                    child: const Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 10),
+                                      child: BankListWidet(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          });
+                      // goTo(context, PAGES.addcardPage.route);
                     },
                     icon: getIconWidget(IconsAvailables.plus),
                   )
@@ -238,5 +277,48 @@ class HomePageWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class BankListWidet extends StatelessWidget {
+  const BankListWidet({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<HomeProvider>(builder: (context, data, _) {
+      return ListView(
+        physics: const BouncingScrollPhysics(),
+        children: ["BCP", "BBVA", "INTERBANK", "SCOTIABANK", "AGORA"]
+            .map((e) => Container(
+                  margin: const EdgeInsets.symmetric(vertical: 5),
+                  child: Card(
+                    elevation: 5,
+                    color: data.settings.isDark
+                        ? const Color.fromARGB(188, 66, 66, 66)
+                        : const Color.fromARGB(255, 253, 253, 238),
+                    surfaceTintColor: data.settings.isDark
+                        ? const Color.fromARGB(255, 21, 21, 21)
+                        : const Color.fromARGB(255, 252, 252, 236),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      child: ListTile(
+                        leading: getIconWidget(IconsAvailables.bank),
+                        trailing: getIconWidget(IconsAvailables.chevronRight),
+                        title: Text(e, style: GoogleFonts.lato()),
+                        subtitle: Text('Tiene 3 diseños disponibles',
+                            style: GoogleFonts.lato()),
+                        onTap: () {
+                          Navigator.pop(context);
+                          goTo(context, PAGES.addcardPage.route);
+                        },
+                      ),
+                    ),
+                  ),
+                ))
+            .toList(),
+      );
+    });
   }
 }

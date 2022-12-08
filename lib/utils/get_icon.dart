@@ -68,6 +68,11 @@ enum IconsAvailables {
   arrowsLeft,
   camera,
   gallery,
+  chart,
+  group,
+  calendar,
+  calculator,
+  bank
 }
 
 Widget getIconWidget(IconsAvailables icon, {Color? color, double? size}) {
@@ -523,6 +528,41 @@ Widget getIconWidget(IconsAvailables icon, {Color? color, double? size}) {
   if (icon == IconsAvailables.gallery) {
     return FaIcon(
       FontAwesomeIcons.image,
+      color: color,
+      size: size,
+    );
+  }
+  if (icon == IconsAvailables.chart) {
+    return FaIcon(
+      FontAwesomeIcons.chartLine,
+      color: color,
+      size: size,
+    );
+  }
+  if (icon == IconsAvailables.group) {
+    return FaIcon(
+      FontAwesomeIcons.layerGroup,
+      color: color,
+      size: size,
+    );
+  }
+  if (icon == IconsAvailables.calendar) {
+    return FaIcon(
+      FontAwesomeIcons.calendarDays,
+      color: color,
+      size: size,
+    );
+  }
+  if (icon == IconsAvailables.calculator) {
+    return FaIcon(
+      FontAwesomeIcons.calculator,
+      color: color,
+      size: size,
+    );
+  }
+  if (icon == IconsAvailables.bank) {
+    return FaIcon(
+      FontAwesomeIcons.buildingColumns,
       color: color,
       size: size,
     );

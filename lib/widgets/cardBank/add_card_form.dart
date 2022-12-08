@@ -3,7 +3,7 @@ import 'package:eran_by_saving/utils/confirm_dialog.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:eran_by_saving/utils/two_decimals.dart';
-import 'package:eran_by_saving/widgets/cardBank/card_bbva_widget.dart';
+import 'package:eran_by_saving/widgets/cardBank/card_bbva_debit_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bcp_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -53,7 +53,7 @@ class _FormAddCardState extends State<FormAddCard> {
                             child: const CardCurvoBCPCredimas()),
                         ClipRRect(
                             borderRadius: BorderRadius.circular(20),
-                            child: const CardCurvoBBVACompras()),
+                            child: const CardCurvoBBVADebit()),
                       ],
                     ),
                   ),

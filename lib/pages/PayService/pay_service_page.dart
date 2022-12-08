@@ -4,7 +4,7 @@ import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
-import 'package:eran_by_saving/utils/getCardDesing.dart';
+import 'package:eran_by_saving/utils/get_card_desing.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:flutter/material.dart';

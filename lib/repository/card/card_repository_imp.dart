@@ -73,6 +73,20 @@ class CardRepositoryImp extends CardRepository {
               mount: 1800.53),
           guests: []),
       CardModel(
+          amount: 1250.0,
+          card: CARD.AGORA,
+          name: "AGORA - Cuenta de agora ahorro más",
+          nro: "123-xxx-123",
+          nroCCI: "123-xxx-123",
+          id: "4859b7f2-3c67-4dd3-b477-3f760c7972a9",
+          currency: CURRENCY.PEN.toSymbol,
+          owner: CardUserModel(
+              image:
+                  "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              name: "José Luis Octavio Siapo Rodríguez",
+              mount: 1000),
+          guests: []),
+      CardModel(
           amount: 280.0,
           card: CARD.BBVA,
           name: "BBVA - Cuenta de ahorro en dólares",

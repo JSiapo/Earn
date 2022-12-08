@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 
-class CardCurvoBBVACompras extends StatelessWidget {
-  const CardCurvoBBVACompras({Key? key}) : super(key: key);
+class CardCurvoBBVADebit extends StatelessWidget {
+  const CardCurvoBBVADebit({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      color: Colors.lightBlueAccent[400],
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromRGBO(0, 168, 186, 1),
+              Color.fromRGBO(2, 192, 214, 1),
+            ]),
+      ),
       child: CustomPaint(
         painter: _CardCurvoPainter(),
       ),
@@ -32,6 +40,14 @@ class _CardCurvoPainter extends CustomPainter {
     //     size.width * 0.5, size.height * 1);
     path.lineTo(size.width * 0.4, size.height);
     path.lineTo(0, size.height);
+
+    paint.shader = const LinearGradient(
+        begin: Alignment.bottomCenter,
+        end: Alignment.topCenter,
+        colors: [
+          Color.fromRGBO(0, 168, 186, 1),
+          Color.fromRGBO(2, 192, 214, 1),
+        ]).createShader(Rect.fromLTRB(0, 0, size.width, size.height));
 
     canvas.drawPath(path, paint);
   }
