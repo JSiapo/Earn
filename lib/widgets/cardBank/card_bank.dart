@@ -60,13 +60,13 @@ class CardBank extends StatelessWidget {
                       Text(
                         data.nro,
                         style:
-                            const TextStyle(color: Colors.white, fontSize: 13),
+                            const TextStyle(color: Colors.white, fontSize: 15),
                         textScaleFactor: 1,
                       ),
                       Text(
                         "CCI: ${data.nroCCI}",
                         style:
-                            const TextStyle(color: Colors.white, fontSize: 13),
+                            const TextStyle(color: Colors.white, fontSize: 15),
                         textScaleFactor: 1,
                       ),
                     ],

@@ -40,7 +40,11 @@ class CardProvider extends ChangeNotifier {
 
   updateCurrentCard(BuildContext ctx) {
     if (card != null && _cards.isNotEmpty) {
-      card = _cards.firstWhere((element) => element.id == card!.id);
+      // _cards.firstWhere((element) => false)
+      card = _cards.firstWhere(
+        (element) => element.id == card!.id,
+        orElse: () => _cards[0],
+      );
     }
     if (card == null && _cards.isNotEmpty) {
       setFirstCard();

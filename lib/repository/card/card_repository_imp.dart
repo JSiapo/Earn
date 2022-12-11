@@ -8,6 +8,29 @@ class CardRepositoryImp extends CardRepository {
   @override
   Future<List<CardModel>> getAllCards() async {
     await Future.delayed(const Duration(milliseconds: 3500));
+    // return [
+    //   CardModel(
+    //       amount: 1002,
+    //       card: CARD.BCP,
+    //       name: "BCP - Cuenta de ahorro en soles",
+    //       nro: "123-xxx-123",
+    //       nroCCI: "123-xxx-123",
+    //       id: "298ac65c-7021-4b9b-97c7-f3818185bf2b",
+    //       currency: CURRENCY.PEN.toSymbol,
+    //       owner: CardUserModel(
+    //           image:
+    //               "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    //           name: "José Luis Octavio Siapo Rodríguez",
+    //           mount: 1800.53),
+    //       guests: [
+    //         CardUserModel(
+    //             image:
+    //                 "https://images.pexels.com/photos/2076494/pexels-photo-2076494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    //             name: "Lili Rodríguez Urbina",
+    //             mount: 1500)
+    //           ..fecha = "27/08/2022",
+    //       ])
+    // ];
     return [
       CardModel(
           amount: 1002,
