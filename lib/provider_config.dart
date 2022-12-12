@@ -1,5 +1,6 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
+import 'package:eran_by_saving/provider/error_provider.dart';
 import 'package:eran_by_saving/provider/loading_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
 import 'package:eran_by_saving/provider/user_provider.dart';
@@ -12,6 +13,7 @@ import 'package:eran_by_saving/provider/home_provider.dart';
 List<SingleChildWidget> providers() {
   return [
     ChangeNotifierProvider(create: (_) => HomeProvider()),
+    ChangeNotifierProvider(create: (_) => ErrorProvider()),
     ChangeNotifierProvider(create: (_) => CardProvider()),
     ChangeNotifierProvider(create: (_) => OperationProvider()),
     ChangeNotifierProvider(create: (_) => LoadingProvider()),
@@ -20,12 +22,16 @@ List<SingleChildWidget> providers() {
 }
 
 Future<PAGES> start(BuildContext context) async {
-  await context.read<HomeProvider>().loadSetting();
-  await context.read<UserProvider>().loadUser();
-  var user = await context.read<UserProvider>().getUser();
-  if (user != null) {
-    await loadOperations(context);
-    return PAGES.homePage;
+  try {
+    await context.read<HomeProvider>().loadSetting();
+    await context.read<UserProvider>().loadUser();
+    var user = await context.read<UserProvider>().getUser();
+    if (user != null) {
+      await loadOperations(context);
+      return PAGES.homePage;
+    }
+  } catch (e) {
+    rethrow;
   }
 
   return PAGES.loginPage;
@@ -36,8 +42,12 @@ Future<PAGES> start(BuildContext context) async {
 }
 
 Future<void> loadOperations(BuildContext context) async {
-  await Future.wait([
-    context.read<CardProvider>().getAll(),
-    context.read<OperationProvider>().getAll(),
-  ]);
+  try {
+    await Future.wait([
+      context.read<CardProvider>().getAll(),
+      context.read<OperationProvider>().getAll(),
+    ]);
+  } catch (e) {
+    rethrow;
+  }
 }

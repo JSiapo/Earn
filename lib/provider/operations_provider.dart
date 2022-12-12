@@ -20,7 +20,11 @@ class OperationProvider extends ChangeNotifier {
   }
 
   Future<void> getAll() async {
-    operations = await repository.getAllOperation();
+    try {
+      operations = await repository.getAllOperation();
+    } catch (e) {
+      rethrow;
+    }
   }
 
   Future<void> refresh() async {

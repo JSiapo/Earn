@@ -1,4 +1,5 @@
 import 'package:eran_by_saving/constants/operations_constants.dart';
+import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/utils/confirm_dialog.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
@@ -7,6 +8,8 @@ import 'package:eran_by_saving/widgets/cardBank/card_bbva_debit_widget.dart';
 import 'package:eran_by_saving/widgets/cardBank/card_bcp_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class FormAddCard extends StatefulWidget {
   const FormAddCard({Key? key}) : super(key: key);
@@ -192,6 +195,13 @@ class _FormAddCardState extends State<FormAddCard> {
                 ),
                 SizedBox(height: responsive.hp(3.3)),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 20,
+                    surfaceTintColor:
+                        context.read<HomeProvider>().settings.isDark
+                            ? const Color.fromARGB(255, 21, 21, 21)
+                            : const Color.fromARGB(255, 255, 255, 247),
+                  ),
                   onPressed: () {
                     //* Remove focus
                     FocusScopeNode currentFocus = FocusScope.of(context);
@@ -213,8 +223,17 @@ class _FormAddCardState extends State<FormAddCard> {
                       }
                     }
                   },
-                  child: const Text('Submit'),
+                  child: SizedBox(
+                    width: responsive.wp(45),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      child: Text('Registrar',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(fontSize: 18)),
+                    ),
+                  ),
                 ),
+                SizedBox(height: responsive.hp(3.3)),
               ],
             ),
           )),

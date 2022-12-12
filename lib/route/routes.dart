@@ -5,6 +5,7 @@ import 'package:eran_by_saving/pages/Card/AddCard/add_card_page.dart';
 import 'package:eran_by_saving/pages/Card/card_page.dart';
 import 'package:eran_by_saving/pages/Decrypt/descpryt_page.dart';
 import 'package:eran_by_saving/pages/Devices/device_page.dart';
+import 'package:eran_by_saving/pages/Error/error_page.dart';
 import 'package:eran_by_saving/pages/Login/login_page.dart';
 import 'package:eran_by_saving/pages/MoreOptions/more_page.dart';
 import 'package:eran_by_saving/pages/Notifications/notification_page.dart';
@@ -14,6 +15,7 @@ import 'package:eran_by_saving/pages/Receive/receive_page.dart';
 import 'package:eran_by_saving/pages/Redirect/redirect_page.dart';
 import 'package:eran_by_saving/pages/Settings/settings_page.dart';
 import 'package:eran_by_saving/pages/Transfer/transfer_page.dart';
+import 'package:eran_by_saving/pages/Transfer/transfer_page_android.dart';
 import 'package:flutter/material.dart';
 
 import 'package:eran_by_saving/pages/Home/home_page.dart';
@@ -28,48 +30,24 @@ String routeByPlatform(String route) {
   return route;
 }
 
-void goTo(BuildContext context, String route, {bool replace = false}) {
-  if (replace)
-    Navigator.pushReplacementNamed(context, routeByPlatform(route));
-  else
-    Navigator.pushNamed(context, routeByPlatform(route));
+void goTo(BuildContext context, String route,
+    {bool replace = false, NavigatorState? navigator}) {
+  if (navigator != null) {
+    if (replace)
+      navigator.pushReplacementNamed(routeByPlatform(route));
+    else
+      navigator.pushNamed(routeByPlatform(route));
+  } else {
+    if (replace)
+      Navigator.pushReplacementNamed(context, routeByPlatform(route));
+    else
+      Navigator.pushNamed(context, routeByPlatform(route));
+  }
 }
 
 void goBack(BuildContext context) {
   Navigator.pop(context);
 }
-
-// Map<String, Widget Function(BuildContext)> appRoutes = {
-//   '/home': (BuildContext _) => const HomePage(),
-//   '/home_android': (BuildContext _) => const HomePageAndroid(),
-//   '/home_ios': (BuildContext _) => const HomePage(),
-//   '/settings': (BuildContext _) => const SettingsPage(),
-//   '/settings_android': (BuildContext _) => const SettingsPage(),
-//   '/settings_ios': (BuildContext _) => const SettingsPage(),
-//   '/decrpyt': (BuildContext _) => const DecryptPage(),
-//   '/decrpyt_android': (BuildContext _) => const DecryptPage(),
-//   '/decrpyt_ios': (BuildContext _) => const DecryptPage(),
-//   '/card': (BuildContext _) => const CardPage(),
-//   '/card_android': (BuildContext _) => const CardPage(),
-//   '/card_ios': (BuildContext _) => const CardPage(),
-//   '/addcard': (BuildContext _) => const AddCardPage(),
-//   '/addcard_android': (BuildContext _) => const AddCardPage(),
-//   '/addcard_ios': (BuildContext _) => const AddCardPage(),
-//   '/receipt_ios': (BuildContext _) => const ReceiptPage(),
-//   '/receipt_android': (BuildContext _) => const ReceiptPage(),
-//   '/receive_ios': (BuildContext _) => const ReceivePage(),
-//   '/receive_android': (BuildContext _) => const ReceivePage(),
-//   '/transfer_ios': (BuildContext _) => const TransferPage(),
-//   '/transfer_android': (BuildContext _) => const TransferPage(),
-//   '/pay_ios': (BuildContext _) => const PayServicePage(),
-//   '/pay_android': (BuildContext _) => const PayServicePage(),
-//   '/login_ios': (BuildContext _) => const LoginPage(),
-//   '/login_android': (BuildContext _) => const LoginPage(),
-//   '/redirect_ios': (BuildContext _) => const RedirectPage(),
-//   '/redirect_android': (BuildContext _) => const RedirectPage(),
-//   '/notification_ios': (BuildContext _) => const NotificationPage(),
-//   '/notification_android': (BuildContext _) => const NotificationPage(),
-// };
 
 Route<dynamic>? transitionRoutes(RouteSettings settings) {
   if (settings.name == '/home')
@@ -111,9 +89,9 @@ Route<dynamic>? transitionRoutes(RouteSettings settings) {
   if (settings.name == '/receive_android')
     return routeTransition(settings, const ReceivePage());
   if (settings.name == '/transfer_ios')
-    return routeTransition(settings, const TransferPage());
+    return routeTransition(settings, const TransferPageAndroid());
   if (settings.name == '/transfer_android')
-    return routeTransition(settings, const TransferPage());
+    return routeTransition(settings, const TransferPageAndroid());
   if (settings.name == '/pay_ios')
     return routeTransition(settings, const PayServicePage());
   if (settings.name == '/pay_android')
@@ -138,6 +116,10 @@ Route<dynamic>? transitionRoutes(RouteSettings settings) {
     return routeTransition(settings, const MoreOptionsPage());
   if (settings.name == '/moreOptions_android')
     return routeTransition(settings, const MoreOptionsPage());
+  if (settings.name == '/error_ios')
+    return routeTransition(settings, const ErroPage());
+  if (settings.name == '/error_android')
+    return routeTransition(settings, const ErroPage());
   return null;
 }
 

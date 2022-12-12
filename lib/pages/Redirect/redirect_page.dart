@@ -1,5 +1,6 @@
 import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/pages/Decrypt/descpryt_page.dart';
+import 'package:eran_by_saving/provider/error_provider.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/start_data.dart';
@@ -12,12 +13,29 @@ class RedirectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    startData(context).then((success) {
+    try {
+      startData(context).then((success) {
+        context
+            .read<HomeProvider>()
+            .setTheme(context.read<HomeProvider>().settings.isDark);
+        goTo(context, success.route, replace: true);
+      }).onError((error, stackTrace) {
+        context.read<ErrorProvider>().isRedirectPage = true;
+        context.read<ErrorProvider>().redirectErrorPage = PAGES.redirectPage;
+        context
+            .read<ErrorProvider>()
+            .addError("$error", redirectPage: PAGES.redirectPage);
+        goTo(context, PAGES.errorPage.route);
+      });
+    } catch (e) {
+      context.read<ErrorProvider>().isRedirectPage = true;
+      context.read<ErrorProvider>().redirectErrorPage = PAGES.redirectPage;
       context
-          .read<HomeProvider>()
-          .setTheme(context.read<HomeProvider>().settings.isDark);
-      goTo(context, success.route, replace: true);
-    });
+          .read<ErrorProvider>()
+          .addError("$e", redirectPage: PAGES.redirectPage);
+      goTo(context, PAGES.errorPage.route);
+    }
+
     return const DecryptPage();
   }
 }

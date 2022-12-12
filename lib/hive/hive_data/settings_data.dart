@@ -17,6 +17,6 @@ class SettingsData {
     if (box.values.isNotEmpty) {
       return box.values.last.toSettings();
     }
-    return const Settings(isDark: false);
+    return const Settings(isDark: true);
   }
 }

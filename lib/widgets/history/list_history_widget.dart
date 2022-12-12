@@ -1,6 +1,12 @@
+import 'package:dio/dio.dart';
+import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
+import 'package:eran_by_saving/provider/error_provider.dart';
+import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/provider/operations_provider.dart';
+import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/get_icon.dart';
+import 'package:eran_by_saving/utils/show_bottom_alert.dart';
 import 'package:eran_by_saving/widgets/history/item_history_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,14 +34,21 @@ class _HistoryListState extends State<HistoryList> {
     return Consumer<CardProvider>(builder: (context, cardData, _) {
       return RefreshIndicator(
         onRefresh: () async {
-          await Future.wait([
-            Future.delayed(const Duration(milliseconds: 1500)),
-            context.read<CardProvider>().refresh(context),
-            context.read<OperationProvider>().refresh(),
-          ]);
-          await context
-              .read<OperationProvider>()
-              .findOperationsFiltered(cardData.card?.id);
+          try {
+            await Future.wait([
+              context.read<CardProvider>().refresh(context),
+              context.read<OperationProvider>().refresh(),
+            ]);
+            await context
+                .read<OperationProvider>()
+                .findOperationsFiltered(cardData.card?.id);
+          } on DioError catch (e) {
+            context.read<ErrorProvider>().addError(e.message, isBackPage: true);
+            goTo(context, PAGES.errorPage.route);
+          } catch (e) {
+            context.read<ErrorProvider>().addError("$e", isBackPage: true);
+            goTo(context, PAGES.errorPage.route);
+          }
         },
         child: context.watch<OperationProvider>().operationsFiltered.isEmpty
             ? Stack(

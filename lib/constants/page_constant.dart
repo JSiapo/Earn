@@ -13,6 +13,7 @@ enum PAGES {
   payPage,
   devicePage,
   moreOptionsPage,
+  errorPage,
 }
 
 extension PagesExt on PAGES {

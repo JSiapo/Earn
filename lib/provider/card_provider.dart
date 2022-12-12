@@ -18,17 +18,25 @@ class CardProvider extends ChangeNotifier {
   }
 
   Future<bool> getAll() async {
-    cards = await repository.getAllCards();
-    return true;
+    try {
+      cards = await repository.getAllCards();
+      return true;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   Future<void> refresh(BuildContext ctx) async {
-    _cards = await repository.getAllCards();
-    cards = _cards;
-    if (_cards.isEmpty) {
-      card = null;
-    } else {
-      updateCurrentCard(ctx);
+    try {
+      _cards = await repository.getAllCards();
+      cards = _cards;
+      if (_cards.isEmpty) {
+        card = null;
+      } else {
+        updateCurrentCard(ctx);
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 

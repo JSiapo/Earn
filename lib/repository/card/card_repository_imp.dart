@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:eran_by_saving/constants/card_constant.dart';
 import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/model/card_model.dart';
@@ -7,7 +8,10 @@ import 'package:eran_by_saving/repository/card/cards_repository.dart';
 class CardRepositoryImp extends CardRepository {
   @override
   Future<List<CardModel>> getAllCards() async {
-    await Future.delayed(const Duration(milliseconds: 3500));
+    // await Future.delayed(const Duration(milliseconds: 3500));
+    print('paso por card');
+    // throw DioError(requestOptions: RequestOptions(path: 'algo'));
+    // throw Error();
     // return [
     //   CardModel(
     //       amount: 1002,

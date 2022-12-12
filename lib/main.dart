@@ -56,9 +56,6 @@ class MaterialWithTheme extends StatelessWidget {
           scaffoldBackgroundColor:
               data.settings.isDark ? Colors.grey[850] : Colors.grey[50],
           brightness: data.settings.isDark ? Brightness.dark : Brightness.light,
-          // : MediaQueryData.fromWindow(
-          //         WidgetsBinding.instance.window)
-          //     .platformBrightness,
         ),
         initialRoute: routeByPlatform(PAGES.redirectPage.route),
         // routes: appRoutes,

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/model/operation_model.dart';
 import 'package:eran_by_saving/repository/operation/operation_repository.dart';
@@ -11,7 +12,10 @@ class OperationRepositoryImp extends OperationRepository {
 
   @override
   Future<List<Operation>> getAllOperation() async {
-    await Future.delayed(const Duration(milliseconds: 4500));
+    await Future.delayed(const Duration(milliseconds: 1500));
+    // print('paso por operacion');
+    // throw DioError(requestOptions: RequestOptions(path: 'algo'));
+
     return [
       Operation(
         id: "298ac65c-7021-4b9b-97c7-f3818185bf2b",

@@ -13,6 +13,7 @@ class DecryptPage extends StatelessWidget with BasePage {
     Responsive responsive = Responsive(context);
     DevicePlatform dp = DevicePlatform();
     return Scaffold(
+      appBar: getclearAppBar(context, toolbarHeight: 0),
       body: Center(
         child: Stack(
           children: [
