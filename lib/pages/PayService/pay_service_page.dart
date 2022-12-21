@@ -54,7 +54,7 @@ class PayServicePage extends StatelessWidget with BasePage {
                       size: 20, color: Colors.white),
                 ),
                 backgroundColor: Colors.grey[850],
-                expandedHeight: 200,
+                expandedHeight: 230,
                 floating: false,
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(

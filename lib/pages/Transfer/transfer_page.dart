@@ -1,7 +1,9 @@
 import 'package:eran_by_saving/pages/Error/error_page.dart';
 import 'package:eran_by_saving/pages/Loading/loading_page.dart';
+import 'package:eran_by_saving/pages/Success/success_page.dart';
 import 'package:eran_by_saving/provider/error_provider.dart';
 import 'package:eran_by_saving/provider/loading_provider.dart';
+import 'package:eran_by_saving/provider/success_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +21,10 @@ class TransferPage extends StatelessWidget {
       }),
       Consumer<ErrorProvider>(builder: (context, data, _) {
         if (data.errors.isNotEmpty) return const ErroPage();
+        return Container();
+      }),
+      Consumer<SuccessProvider>(builder: (context, data, _) {
+        if (data.messages.isNotEmpty) return const SuccessPage();
         return Container();
       }),
     ]);

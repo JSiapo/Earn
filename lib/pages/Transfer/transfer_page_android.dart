@@ -10,6 +10,8 @@ import 'package:eran_by_saving/provider/card_provider.dart';
 import 'package:eran_by_saving/provider/error_provider.dart';
 import 'package:eran_by_saving/provider/home_provider.dart';
 import 'package:eran_by_saving/provider/loading_provider.dart';
+import 'package:eran_by_saving/provider/operations_provider.dart';
+import 'package:eran_by_saving/provider/success_provider.dart';
 import 'package:eran_by_saving/route/routes.dart';
 import 'package:eran_by_saving/utils/confirm_dialog.dart';
 import 'package:eran_by_saving/utils/get_card_desing.dart';
@@ -114,7 +116,7 @@ class _TransferPageAndroidState extends State<TransferPageAndroid> {
                         size: 20, color: Colors.white),
                   ),
                   backgroundColor: Colors.grey[850],
-                  expandedHeight: 200,
+                  expandedHeight: 230,
                   floating: false,
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
@@ -375,17 +377,23 @@ class _TransferPageAndroidState extends State<TransferPageAndroid> {
                         }
                         showModalBottomSheet(
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20)),
                             ),
                             enableDrag: true,
+                            isDismissible: false,
                             context: _scaffoldKey.currentContext ?? context,
                             builder: (BuildContext context) {
                               return SizedBox(
-                                height: responsive.hp(40),
+                                height: responsive.hp(60),
                                 child: Padding(
                                   padding: const EdgeInsets.all(12.0),
                                   child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
                                     children: <Widget>[
+                                      DividerModalWidget(),
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
@@ -396,122 +404,212 @@ class _TransferPageAndroidState extends State<TransferPageAndroid> {
                                           ),
                                         ),
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            'Monto',
-                                            style: GoogleFonts.lato(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
+                                      Divider(),
+                                      SizedBox(
+                                        height: responsive.hp(30),
+                                        child: ListView(
+                                          children: [
+                                            ListTile(
+                                              leading: getIconWidget(
+                                                  IconsAvailables.moneyBill),
+                                              title: const Text('Monto'),
+                                              trailing: SizedBox(
+                                                width: responsive.wp(40),
+                                                child: Text(
+                                                  '${data.card!.currency} 300.00',
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.end,
+                                                  style: GoogleFonts.lato(
+                                                      fontSize: 14),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(
-                                            child: Text(
-                                              '${data.card!.currency} 3000.20',
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.end,
-                                              style: GoogleFonts.lato(
-                                                  fontSize: 14),
+                                            ListTile(
+                                              leading: getIconWidget(
+                                                  IconsAvailables.user),
+                                              title: const Text('Persona'),
+                                              trailing: SizedBox(
+                                                width: responsive.wp(40),
+                                                child: Text(
+                                                  'Juan Carlos Paredes Tinedo',
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.end,
+                                                  style: GoogleFonts.lato(
+                                                      fontSize: 14),
+                                                ),
+                                              ),
                                             ),
-                                            width: responsive.wp(60),
-                                          )
-                                        ],
+                                            ListTile(
+                                              leading: getIconWidget(
+                                                  IconsAvailables.pen),
+                                              title: const Text('Motivo'),
+                                              trailing: SizedBox(
+                                                width: responsive.wp(40),
+                                                child: Text(
+                                                  'Recarga Movistar',
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.end,
+                                                  style: GoogleFonts.lato(
+                                                      fontSize: 14),
+                                                ),
+                                              ),
+                                            ),
+                                            ListTile(
+                                              leading: getIconWidget(
+                                                  IconsAvailables.pen),
+                                              title: const Text('Observación'),
+                                              trailing: SizedBox(
+                                                width: responsive.wp(35),
+                                                child: Text(
+                                                  'Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla',
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.end,
+                                                  maxLines: 3,
+                                                  style: GoogleFonts.lato(
+                                                      fontSize: 14),
+                                                ),
+                                              ),
+                                            ),
+                                            ListTile(
+                                              leading: getIconWidget(
+                                                  IconsAvailables.gallery),
+                                              title: const Text('Imánges'),
+                                              trailing: SizedBox(
+                                                width: responsive.wp(40),
+                                                child: Text(
+                                                  '5 Imágenes',
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.end,
+                                                  style: GoogleFonts.lato(
+                                                      fontSize: 14),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            'Persona',
-                                            style: GoogleFonts.lato(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            child: Text(
-                                              'Juan Carlos Paredes Tinedo',
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.end,
-                                              style: GoogleFonts.lato(
-                                                  fontSize: 14),
-                                            ),
-                                            width: responsive.wp(60),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            'Motivo',
-                                            style: GoogleFonts.lato(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            child: Text(
-                                              'Recarga Movistar',
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.end,
-                                              style: GoogleFonts.lato(
-                                                  fontSize: 14),
-                                            ),
-                                            width: responsive.wp(60),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            'Observación',
-                                            style: GoogleFonts.lato(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            child: Text(
-                                              'Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla',
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.end,
-                                              style: GoogleFonts.lato(
-                                                  fontSize: 14),
-                                              maxLines: 3,
-                                            ),
-                                            width: responsive.wp(60),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          Text(
-                                            'Imánges',
-                                            style: GoogleFonts.lato(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            child: Text(
-                                              '5 Adjuntas',
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.end,
-                                              style: GoogleFonts.lato(
-                                                  fontSize: 14),
-                                            ),
-                                            width: responsive.wp(60),
-                                          ),
-                                        ],
-                                      ),
+                                      // Row(
+                                      //   mainAxisAlignment:
+                                      //       MainAxisAlignment.spaceBetween,
+                                      //   children: <Widget>[
+                                      //     Text(
+                                      //       'Monto',
+                                      //       style: GoogleFonts.lato(
+                                      //         fontSize: 14,
+                                      //         fontWeight: FontWeight.bold,
+                                      //       ),
+                                      //     ),
+                                      //     SizedBox(
+                                      //       child: Text(
+                                      //         '${data.card!.currency} 3000.20',
+                                      //         overflow: TextOverflow.ellipsis,
+                                      //         textAlign: TextAlign.end,
+                                      //         style: GoogleFonts.lato(
+                                      //             fontSize: 14),
+                                      //       ),
+                                      //       width: responsive.wp(60),
+                                      //     )
+                                      //   ],
+                                      // ),
+                                      // Row(
+                                      //   mainAxisAlignment:
+                                      //       MainAxisAlignment.spaceBetween,
+                                      //   children: <Widget>[
+                                      //     Text(
+                                      //       'Persona',
+                                      //       style: GoogleFonts.lato(
+                                      //         fontSize: 14,
+                                      //         fontWeight: FontWeight.bold,
+                                      //       ),
+                                      //     ),
+                                      //     SizedBox(
+                                      //       child: Text(
+                                      //         'Juan Carlos Paredes Tinedo',
+                                      //         overflow: TextOverflow.ellipsis,
+                                      //         textAlign: TextAlign.end,
+                                      //         style: GoogleFonts.lato(
+                                      //             fontSize: 14),
+                                      //       ),
+                                      //       width: responsive.wp(60),
+                                      //     ),
+                                      //   ],
+                                      // ),
+                                      // Row(
+                                      //   mainAxisAlignment:
+                                      //       MainAxisAlignment.spaceBetween,
+                                      //   children: <Widget>[
+                                      //     Text(
+                                      //       'Motivo',
+                                      //       style: GoogleFonts.lato(
+                                      //         fontSize: 14,
+                                      //         fontWeight: FontWeight.bold,
+                                      //       ),
+                                      //     ),
+                                      //     SizedBox(
+                                      //       child: Text(
+                                      //         'Recarga Movistar',
+                                      //         overflow: TextOverflow.ellipsis,
+                                      //         textAlign: TextAlign.end,
+                                      //         style: GoogleFonts.lato(
+                                      //             fontSize: 14),
+                                      //       ),
+                                      //       width: responsive.wp(60),
+                                      //     ),
+                                      //   ],
+                                      // ),
+                                      // Row(
+                                      //   mainAxisAlignment:
+                                      //       MainAxisAlignment.spaceBetween,
+                                      //   children: <Widget>[
+                                      //     Text(
+                                      //       'Observación',
+                                      //       style: GoogleFonts.lato(
+                                      //         fontSize: 14,
+                                      //         fontWeight: FontWeight.bold,
+                                      //       ),
+                                      //     ),
+                                      //     SizedBox(
+                                      //       child: Text(
+                                      //         'Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla Ninguna observación bla bla bla bla bla',
+                                      //         overflow: TextOverflow.ellipsis,
+                                      //         textAlign: TextAlign.end,
+                                      //         style: GoogleFonts.lato(
+                                      //             fontSize: 14),
+                                      //         maxLines: 3,
+                                      //       ),
+                                      //       width: responsive.wp(60),
+                                      //     ),
+                                      //   ],
+                                      // ),
+                                      // Row(
+                                      //   mainAxisAlignment:
+                                      //       MainAxisAlignment.spaceBetween,
+                                      //   children: <Widget>[
+                                      //     Text(
+                                      //       'Imánges',
+                                      //       style: GoogleFonts.lato(
+                                      //         fontSize: 14,
+                                      //         fontWeight: FontWeight.bold,
+                                      //       ),
+                                      //     ),
+                                      //     SizedBox(
+                                      //       child: Text(
+                                      //         '5 Adjuntas',
+                                      //         overflow: TextOverflow.ellipsis,
+                                      //         textAlign: TextAlign.end,
+                                      //         style: GoogleFonts.lato(
+                                      //             fontSize: 14),
+                                      //       ),
+                                      //       width: responsive.wp(60),
+                                      //     ),
+                                      //   ],
+                                      // ),
+
                                       Padding(
                                         padding: const EdgeInsets.only(top: 15),
                                         child: Consumer<LoadingProvider>(
@@ -521,35 +619,62 @@ class _TransferPageAndroidState extends State<TransferPageAndroid> {
                                               builder: (context,
                                                   errorDataProvider, _) {
                                                 return ConfirmationSlider(
-                                                  width: responsive.wp(60),
+                                                  width: responsive.wp(70),
                                                   height: responsive.hp(7),
                                                   onConfirmation: () async {
                                                     try {
                                                       goBack(tcontext);
                                                       loadingDataProvider
                                                           .setLoading(true);
-                                                      await Future.delayed(
-                                                          const Duration(
-                                                              milliseconds:
-                                                                  1500));
-
+                                                      await Future.wait([
+                                                        Future.delayed(
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    1500)),
+                                                      ]);
+                                                      await tcontext
+                                                          .read<
+                                                              OperationProvider>()
+                                                          .refresh();
+                                                      tcontext
+                                                          .read<
+                                                              OperationProvider>()
+                                                          .findOperationsFiltered(
+                                                              tcontext
+                                                                  .read<
+                                                                      CardProvider>()
+                                                                  .card
+                                                                  ?.id);
                                                       loadingDataProvider
                                                           .setLoading(false);
-                                                      goBack(tcontext);
+                                                      tcontext
+                                                          .read<
+                                                              SuccessProvider>()
+                                                          .addMessage(
+                                                              "Registrado correctamente");
+                                                      // goBack(tcontext);
                                                     } catch (e) {
                                                       loadingDataProvider
                                                           .setLoading(false);
                                                       errorDataProvider
                                                           .addError("$e");
+                                                    } finally {
+                                                      loadingDataProvider
+                                                          .setLoading(false);
                                                     }
                                                   },
                                                   backgroundColor:
                                                       Color.fromARGB(
-                                                          255, 21, 109, 37),
+                                                          255, 16, 55, 23),
+                                                  foregroundColor:
+                                                      Color.fromARGB(
+                                                          255, 27, 119, 44),
                                                   text: 'Confirmar',
                                                   textStyle: GoogleFonts.lato(
                                                       color: Colors.white,
-                                                      fontSize: 15),
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 );
                                               },
                                             );
@@ -580,6 +705,33 @@ class _TransferPageAndroidState extends State<TransferPageAndroid> {
           );
         });
       }),
+    );
+  }
+}
+
+class DividerModalWidget extends StatelessWidget {
+  const DividerModalWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Responsive responsive = Responsive(context);
+    return FractionallySizedBox(
+      widthFactor: 0.2, // width of top divider bar
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          // margin of top divider bar
+          vertical: responsive.hp(0.7),
+        ),
+        child: Container(
+          height: responsive.hp(0.7),
+          decoration: BoxDecoration(
+            color: context.read<HomeProvider>().settings.isDark
+                ? Colors.white
+                : Colors.black, // color of top divider bar
+            borderRadius: const BorderRadius.all(Radius.circular(2.5)),
+          ),
+        ),
+      ),
     );
   }
 }

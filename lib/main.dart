@@ -42,7 +42,7 @@ class MaterialWithTheme extends StatelessWidget {
     return Consumer<HomeProvider>(
       builder: (context, data, _) => MaterialApp(
         scrollBehavior: AppScrollBehavior(),
-        title: 'Earn By Saving',
+        title: 'F-App JS',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           pageTransitionsTheme: const PageTransitionsTheme(

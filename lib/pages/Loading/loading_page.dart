@@ -1,10 +1,11 @@
+import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/utils/device.dart';
 import 'package:eran_by_saving/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
-class LoadingPage extends StatelessWidget {
+class LoadingPage extends StatelessWidget with BasePage {
   const LoadingPage({Key? key}) : super(key: key);
 
   @override
@@ -16,6 +17,7 @@ class LoadingPage extends StatelessWidget {
         return false;
       },
       child: Scaffold(
+        appBar: getclearAppBar(context, toolbarHeight: 0),
         body: Center(
           child: Stack(
             children: [
