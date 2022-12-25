@@ -6,7 +6,7 @@ import 'package:eran_by_saving/pages/Card/card_page.dart';
 import 'package:eran_by_saving/pages/Decrypt/descpryt_page.dart';
 import 'package:eran_by_saving/pages/Devices/device_page.dart';
 import 'package:eran_by_saving/pages/Error/error_page.dart';
-import 'package:eran_by_saving/pages/Login/login_page.dart';
+import 'package:eran_by_saving/pages/Login/login_android.dart';
 import 'package:eran_by_saving/pages/MoreOptions/more_page.dart';
 import 'package:eran_by_saving/pages/Notifications/notification_page.dart';
 import 'package:eran_by_saving/pages/PayService/pay_service_page.dart';
@@ -14,7 +14,6 @@ import 'package:eran_by_saving/pages/Receipt/receipt_page.dart';
 import 'package:eran_by_saving/pages/Receive/receive_page.dart';
 import 'package:eran_by_saving/pages/Redirect/redirect_page.dart';
 import 'package:eran_by_saving/pages/Settings/settings_page.dart';
-import 'package:eran_by_saving/pages/Transfer/transfer_page.dart';
 import 'package:eran_by_saving/pages/Transfer/transfer_page_android.dart';
 import 'package:flutter/material.dart';
 
@@ -97,9 +96,9 @@ Route<dynamic>? transitionRoutes(RouteSettings settings) {
   if (settings.name == '/pay_android')
     return routeTransition(settings, const PayServicePage());
   if (settings.name == '/login_ios')
-    return routeTransition(settings, const LoginPage());
+    return routeTransition(settings, const LoginAndroidPage());
   if (settings.name == '/login_android')
-    return routeTransition(settings, const LoginPage());
+    return routeTransition(settings, const LoginAndroidPage());
   if (settings.name == '/redirect_ios')
     return routeTransition(settings, const RedirectPage());
   if (settings.name == '/redirect_android')

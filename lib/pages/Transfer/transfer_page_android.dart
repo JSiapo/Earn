@@ -3,7 +3,6 @@
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:eran_by_saving/constants/page_constant.dart';
 import 'package:eran_by_saving/pages/Transfer/transfer_page.dart';
 import 'package:eran_by_saving/pages/base.dart';
 import 'package:eran_by_saving/provider/card_provider.dart';
