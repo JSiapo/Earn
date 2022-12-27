@@ -4,6 +4,7 @@ import 'package:eran_by_saving/constants/operations_constants.dart';
 import 'package:eran_by_saving/model/card_model.dart';
 import 'package:eran_by_saving/model/card_user_model.dart';
 import 'package:eran_by_saving/repository/card/cards_repository.dart';
+import 'package:eran_by_saving/utils/api.dart';
 
 class CardRepositoryImp extends CardRepository {
   @override
@@ -35,6 +36,11 @@ class CardRepositoryImp extends CardRepository {
     //           ..fecha = "27/08/2022",
     //       ])
     // ];
+
+    API api = API();
+    var result = await api.getData('/location');
+    print(result);
+
     return [
       CardModel(
           amount: 1002,

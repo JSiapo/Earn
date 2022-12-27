@@ -38,8 +38,9 @@ dependencies:
   provider: ^6.0.3 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   font_awesome_flutter: ^10.2.1 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   google_fonts: ^3.0.1 #* ANDROID IOS LINUX MACOS WEB WINDOWS
-  firebase_auth: ^3.3.19 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
-  firebase_core: ^1.17.1 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
+  firebase_auth: ^4.2.3 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
+  firebase_core: ^2.4.0 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
+  firebase_messaging: ^14.2.0 #* ANDROID IOS MACOS WEB (!WINDOWS !LINUX )
   google_sign_in: ^5.4.2 #* ANDROID IOS WEB (!WINDOWS !LINUX !MACOS)
   dio: ^4.0.6 #* ANDROID IOS LINUX MACOS WEB WINDOWS
   barcode_widget: ^2.0.2 #* ANDROID IOS LINUX MACOS WEB WINDOWS
