@@ -10,3 +10,10 @@ extension CURRENCYExt on CURRENCY {
     return "S./";
   }
 }
+
+extension StringCURRENCYExt on String {
+  CURRENCY get toSymbol {
+    if (this == "S./") return CURRENCY.PEN;
+    return CURRENCY.USD;
+  }
+}
